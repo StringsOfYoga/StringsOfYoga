@@ -1,27 +1,35 @@
-# StringsOfYoga
+# **Strings Of Yoga**
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.0.
 
-## Development server
+**Strings Of Yoga** is a portfolio website for a London-based yoga instructor.
+The platform showcases courses, resources, and professional yoga offerings—built as a modern full-stack web application.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+The project is currently in the **building/development phase**.
 
-## Code scaffolding
+---
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 🌟 **Main Features**
 
-## Build
+* Yoga instructor portfolio
+* Course listing & details
+* Resource sharing functionality
+* Clean and simple UI focused on usability
+* Backend support for dynamic content (in progress)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+---
 
-## Running unit tests
+## 🛠️ **Tech Stack**
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+* **Angular** (Frontend)
+* **.NET** (Backend APIs)
+* **MongoDB** (Database)
 
-## Running end-to-end tests
+---
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## 🔗 **Live Link**
 
-## Further help
+You can preview the current build here:
+👉 **[https://stringsofyoga.com/](https://stringsofyoga.com/)**
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
