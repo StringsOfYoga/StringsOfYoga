@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --darkred: #7D0E03;
+    --brown: #BC4E02;
+    --coralOrange: #CC4E00;
+    --white: #FFFFFF;
+    --coralPastel-1: #FFE6D6;
+    /* very soft, airy */
+    --coralPastel-2: #FFD2B8;
+    /* warm and gentle */
+    --coralPastel-3: #FFC2A0;
+    /* still pastel but more visible */
+    --coralPastel-neutral: #F7E6DC;
+
+
+}
+
+body {
+    background-image: url(/assets/background.jpg);
+}
