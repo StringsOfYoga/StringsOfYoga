@@ -302,8 +302,9 @@ a {
 	/* background-image: url(../img/the-best-class-yoga.jpg); */
 	background-image: url(/landing/img/yoga-header.jpg);
 	background-size: cover;
-	/* background-position: center right; */
+	background-position: center;
 	background-repeat: no-repeat;
+	border-radius: 350px 350px 0px 0px;
 }
 
 /*Advantages*/
