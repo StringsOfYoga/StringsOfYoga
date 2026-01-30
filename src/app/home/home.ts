@@ -69,7 +69,7 @@ constructor(
       autoplaySpeed: 4000
     });
     AOS.init({
-      duration: 800,
+      duration: 400,
       once: true
     });
     AOS.refreshHard();
