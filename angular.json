@@ -27,7 +27,9 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/glightbox/dist/css/glightbox.min.css",
+              "node_modules/aos/dist/aos.css"
             ]
           },
           "configurations": {
@@ -81,7 +83,9 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/glightbox/dist/css/glightbox.min.css",
+              "node_modules/aos/dist/aos.css"
             ]
           }
         }

@@ -1,69 +1,123 @@
-import { AfterViewInit, Component } from '@angular/core';
-declare var Isotope: any;
+import { CommonModule } from '@angular/common';
+import { AfterViewInit, Component, NgZone } from '@angular/core';
+import { Router } from '@angular/router';
+import * as AOS from 'aos';
 declare var $: any;
+import GLightbox from 'glightbox';
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
 export class Home implements AfterViewInit {
+  activeTab = 'all-genre';
+  tabs = ['all-genre', 'business', 'technology', 'romantic', 'adventure', 'fictional'];
+  private lightbox: any;
+constructor(
+  private router: Router,
+  private zone: NgZone
+) {
+  this.router.events.subscribe(() => {
+    setTimeout(() => this.initLightbox());
+  });
+}
 
-  private isotope!: any;
 
+  setTab(tab: string) {
+    this.activeTab = tab;
+  }
   ngAfterViewInit(): void {
-    const el = $('.testimonials-carousel');
-    const bl = $('.blog-carousel');
-
-  if (el.hasClass('owl-loaded') || bl.hasClass('owl-initialized')) {
-    el.trigger('destroy.owl.carousel');
-    bl.trigger('destroy.owl.carousel');
+    $('.product-grid').slick({
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      autoplay: false,
+      autoplaySpeed: 2000,
+      dots: true,
+      arrows: false,
+      responsive: [
+        {
+          breakpoint: 1400,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 999,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 660,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    });
+    $('.main-slider').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: true,
+      prevArrow: '.prev',
+      nextArrow: '.next',
+      autoplay: true,
+      autoplaySpeed: 4000
+    });
+    AOS.init({
+      duration: 800,
+      once: true
+    });
+    AOS.refreshHard();
+   // Run outside Angular to avoid change detection issues
+    this.zone.runOutsideAngular(() => {
+      setTimeout(() => {
+        this.initLightbox();
+        this.initLazyLoad();
+      }, 0);
+    });
   }
 
-    bl.owlCarousel({
-    center: true,
-    autoplay: true,
-    dots: true,
-    loop: true,
-    responsive: {
-      0: { items: 1 },
-      576: { items: 1 },
-      768: { items: 2 },
-      992: { items: 3 }
+  private initLightbox(): void {
+    if (this.lightbox) {
+      this.lightbox.destroy();
     }
-  });
-  el.owlCarousel({
-    center: true,
-    autoplay: true,
-    dots: true,
-    loop: true,
-    responsive: {
-      0: { items: 1 },
-      576: { items: 1 },
-      768: { items: 2 },
-      992: { items: 3 }
-    }
-  });
-    const container = document.querySelector('.class-container');
 
-    if (!container) return;
-
-    this.isotope = new Isotope(container, {
-      itemSelector: '.class-item',
-      layoutMode: 'fitRows'
+    this.lightbox = GLightbox({
+      selector: '.glightbox',
+      touchNavigation: true,
+      loop: true,
+      autoplayVideos: true
     });
+  }
 
-    document.querySelectorAll('#class-filter li').forEach(el => {
-      el.addEventListener('click', () => {
-        document
-          .querySelector('#class-filter .filter-active')
-          ?.classList.remove('filter-active');
+  private initLazyLoad(): void {
+    const lazyBackgrounds =
+      document.querySelectorAll<HTMLElement>('.lazy-bg');
 
-        el.classList.add('filter-active');
-
-        const filterValue = el.getAttribute('data-filter');
-        this.isotope.arrange({ filter: filterValue });
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target as HTMLElement;
+          const bg = el.dataset['bg'];
+          if (bg) {
+            el.style.backgroundImage = `url('${bg}')`;
+            observer.unobserve(el);
+          }
+        }
       });
     });
+
+    lazyBackgrounds.forEach(bg => observer.observe(bg));
+  }
+
+  ngOnDestroy(): void {
+    if (this.lightbox) {
+      this.lightbox.destroy();
+    }
   }
 }
