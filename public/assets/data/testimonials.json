@@ -1,0 +1,23 @@
+[
+  {
+    "id": "t1",
+    "name": "Priya M.",
+    "role": "Yog Nidra participant",
+    "quote": "I came exhausted and left feeling held. The pacing is slow, kind, and exactly what my nervous system needed.",
+    "image": "download1.jpg"
+  },
+  {
+    "id": "t2",
+    "name": "James L.",
+    "role": "Breathwork workshop",
+    "quote": "No pressure, no performance—just real tools I still use when anxiety rises. It feels like a safe room.",
+    "image": "download3.jpg"
+  },
+  {
+    "id": "t3",
+    "name": "Elena R.",
+    "role": "Restorative yoga",
+    "quote": "The softness of this space changed how I relate to rest. I finally allow myself to slow down.",
+    "image": "download5.jpg"
+  }
+]

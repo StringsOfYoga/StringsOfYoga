@@ -1,0 +1,38 @@
+[
+  {
+    "id": "anxiety-relief",
+    "title": "Anxiety Relief Workshop",
+    "description": "Gentle breath, grounding, and Yog Nidra tools to soften anxious patterns and return to the body.",
+    "date": "2026-06-14",
+    "time": "10:00 AM",
+    "location": "Online · Live",
+    "duration": "2 hours",
+    "spots": 12,
+    "image": "download2.jpg",
+    "category": "Anxiety"
+  },
+  {
+    "id": "depression-support",
+    "title": "Depression Support Circle",
+    "description": "A held, non-judgmental space with restorative movement, sharing, and nervous-system care practices.",
+    "date": "2026-07-05",
+    "time": "4:00 PM",
+    "location": "Studio · In person",
+    "duration": "2.5 hours",
+    "spots": 8,
+    "image": "download3.jpg",
+    "category": "Depression support"
+  },
+  {
+    "id": "mental-wellness",
+    "title": "Mental Wellness Weekend",
+    "description": "A slow weekend immersion in breathwork, meditation, and self-compassion—for sustainable inner balance.",
+    "date": "2026-08-22",
+    "time": "9:30 AM",
+    "location": "Retreat space",
+    "duration": "Weekend",
+    "spots": 15,
+    "image": "download4.jpg",
+    "category": "Mental wellness"
+  }
+]

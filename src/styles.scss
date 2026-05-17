@@ -2596,3 +2596,75 @@ footer#footer {
         background: rgba(0, 0, 0, 0.2);
     }
 }
+
+/* — Strings of Yoga: shared page utilities — */
+.soft-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(47, 47, 47, 0.06);
+    transition: transform 0.45s ease, box-shadow 0.45s ease;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 28px rgba(47, 47, 47, 0.09);
+    }
+}
+
+.page-section {
+    padding: 3rem 0 4rem;
+}
+
+.page-section--alt {
+    background: #edebe4;
+}
+
+.btn.btn-pill {
+    border-radius: 2em;
+}
+
+.loading-state,
+.empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--body-text-color);
+}
+
+.contact-form .form-control {
+    border-radius: 12px;
+    border-color: #e0e0e0;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0;
+}
+
+.contact-form label {
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-bottom: 0.35rem;
+}
+
+.blog-card {
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    height: 100%;
+    transition: transform 0.4s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+    }
+
+    img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+    }
+
+    &__body {
+        padding: 1.5rem;
+    }
+}
+
+.collection-pill {
+    cursor: pointer;
+}

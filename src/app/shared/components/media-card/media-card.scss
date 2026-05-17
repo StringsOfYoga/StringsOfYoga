@@ -1,0 +1,26 @@
+.media-desc {
+  font-size: 0.9rem;
+  color: var(--body-text-color);
+  margin: 0.35rem 0 0.75rem;
+}
+
+.media-thumb--pdf {
+  background: linear-gradient(145deg, #edebe4, #f8f6f0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pdf-icon {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--accent-color);
+}
+
+.btn-sm {
+  padding: 0.5em 1.25em;
+  font-size: 0.8rem;
+  height: auto;
+  margin-top: 0.5rem;
+}

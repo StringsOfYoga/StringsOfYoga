@@ -25,6 +25,8 @@ export interface GalleryCollection {
   name?: string;
   title?: string;
   description?: string;
+  isFeatured?: boolean;
+  image?: string;
 }
 
 export interface GalleryMedia {
@@ -34,5 +36,7 @@ export interface GalleryMedia {
   url?: string;
   thumbnailUrl?: string;
   collectionId?: string;
+  description?: string;
   isFeatured?: boolean;
+  category?: string;
 }

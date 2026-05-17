@@ -1,0 +1,32 @@
+<app-page-hero
+  title="Blog"
+  eyebrow="Read & reflect"
+  subtitle="Slow reads for mental wellness, rest, and reconnection—written in a warm, grounding voice."
+/>
+
+<section id="latest-blog" class="page-section">
+  <div class="container">
+    <div class="row g-4">
+      @for (post of posts; track post.id) {
+        <div class="col-md-4" data-aos="fade-up">
+          <article class="blog-card">
+            <a [routerLink]="['/blog', post.slug]">
+              <img [src]="post.image" [alt]="post.title" loading="lazy" />
+            </a>
+            <div class="blog-card__body">
+              <div class="meta-date">{{ post.date | date: 'mediumDate' }}</div>
+              <h3>
+                <a [routerLink]="['/blog', post.slug]">{{ post.title }}</a>
+              </h3>
+              <p>{{ post.excerpt }}</p>
+              <div class="links-element">
+                <div class="categories">{{ post.category }}</div>
+                <span class="text-muted">{{ post.readMinutes }} min read</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      }
+    </div>
+  </div>
+</section>

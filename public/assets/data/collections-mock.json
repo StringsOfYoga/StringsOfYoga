@@ -1,0 +1,30 @@
+[
+  {
+    "id": "sleep-better",
+    "name": "Sleep Better Collection",
+    "description": "Evening Yog Nidra and soft breath practices for deep rest.",
+    "isFeatured": true,
+    "image": "download4.jpg"
+  },
+  {
+    "id": "beginner-breathwork",
+    "name": "Beginner Breathwork",
+    "description": "Gentle introductory sequences to build breath awareness.",
+    "isFeatured": true,
+    "image": "download2.jpg"
+  },
+  {
+    "id": "anxiety-relief-series",
+    "name": "Anxiety Relief Series",
+    "description": "Grounding audios and short meditations for anxious moments.",
+    "isFeatured": false,
+    "image": "download3.jpg"
+  },
+  {
+    "id": "morning-calm",
+    "name": "Morning Calm Playlist",
+    "description": "Soft starts for your day—breath, intention, and gentle movement.",
+    "isFeatured": true,
+    "image": "download1.jpg"
+  }
+]

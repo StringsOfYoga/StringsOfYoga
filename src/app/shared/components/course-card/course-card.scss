@@ -1,0 +1,16 @@
+.course-card__desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0.5rem 0 0;
+  color: var(--body-text-color);
+}
+
+.course-card__format {
+  margin: 0.25rem 0 0;
+  color: var(--accent-color);
+}
+
+.course-card .add-to-cart {
+  text-decoration: none;
+  display: block;
+}

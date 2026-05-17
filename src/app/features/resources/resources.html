@@ -1,0 +1,75 @@
+<app-page-hero
+  title="Resource Library"
+  eyebrow="Listen · Watch · Read"
+  subtitle="Curated practices for sleep, breath, anxiety relief, and morning calm—browse at your own pace."
+/>
+
+<section class="page-section">
+  <div class="container">
+    <div class="row mb-4 g-3 align-items-end">
+      <div class="col-lg-6">
+        <label class="visually-hidden" for="resource-search">Search resources</label>
+        <input
+          id="resource-search"
+          type="search"
+          class="form-control"
+          placeholder="Search by title or topic…"
+          [(ngModel)]="searchTerm"
+          (keyup.enter)="onSearch()"
+        />
+      </div>
+      <div class="col-lg-3">
+        <button type="button" class="btn btn-common btn-pill w-100" (click)="onSearch()">Search</button>
+      </div>
+    </div>
+
+    <ul class="nav nav-pills mb-4 justify-content-center flex-wrap" role="tablist">
+      @for (f of typeFilters; track f.id) {
+        <li class="nav-item" role="presentation">
+          <button
+            type="button"
+            class="nav-link"
+            [class.active]="typeFilter === f.id"
+            (click)="setTypeFilter(f.id)"
+          >
+            {{ f.label }}
+          </button>
+        </li>
+      }
+    </ul>
+
+    @if (collections.length) {
+      <div class="mb-4 text-center">
+        <p class="text-muted mb-2">Collections</p>
+        <div class="d-flex flex-wrap gap-2 justify-content-center">
+          @for (c of collections; track c.id) {
+            <button
+              type="button"
+              class="nav-link collection-pill"
+              [class.active]="selectedCollectionId === c.id"
+              (click)="selectCollection(c.id)"
+            >
+              {{ c.name }}
+            </button>
+          }
+        </div>
+      </div>
+    }
+
+    @if (loadError) {
+      <p class="empty-state" role="alert">{{ loadError }}</p>
+    } @else if (loading) {
+      <p class="loading-state" role="status">Loading resources…</p>
+    } @else if (!mediaItems.length) {
+      <p class="empty-state">No resources match your search. Try another filter or collection.</p>
+    } @else {
+      <div class="row g-4">
+        @for (item of mediaItems; track item.id) {
+          <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up">
+            <app-media-card [media]="item" />
+          </div>
+        }
+      </div>
+    }
+  </div>
+</section>

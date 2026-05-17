@@ -1,0 +1,64 @@
+[
+  {
+    "id": "m1",
+    "title": "Guided Yoga Nidra",
+    "type": "audio",
+    "url": "/assets/audio/yoga-nidra.mp3",
+    "thumbnailUrl": "download4.jpg",
+    "collectionId": "sleep-better",
+    "description": "A 25-minute practice for deep rest.",
+    "isFeatured": true,
+    "category": "Yog Nidra"
+  },
+  {
+    "id": "m2",
+    "title": "Guided Yoga Nidra for Sleep",
+    "type": "video",
+    "url": "https://www.youtube.com/watch?v=VFJwKU-o5dE",
+    "thumbnailUrl": "download2.jpg",
+    "collectionId": "sleep-better",
+    "isFeatured": true,
+    "category": "Sleep"
+  },
+  {
+    "id": "m3",
+    "title": "30-Minute Yoga Nidra",
+    "type": "video",
+    "url": "https://www.youtube.com/watch?v=inpok4MKVLM",
+    "thumbnailUrl": "download3.jpg",
+    "collectionId": "sleep-better",
+    "isFeatured": true,
+    "category": "Yog Nidra"
+  },
+  {
+    "id": "m4",
+    "title": "Morning Breath Awareness",
+    "type": "audio",
+    "url": "/assets/audio/yoga-nidra.mp3",
+    "thumbnailUrl": "download1.jpg",
+    "collectionId": "morning-calm",
+    "isFeatured": false,
+    "category": "Breathwork"
+  },
+  {
+    "id": "m5",
+    "title": "Grounding PDF Guide",
+    "type": "pdf",
+    "url": "#",
+    "thumbnailUrl": "download5.jpg",
+    "collectionId": "anxiety-relief-series",
+    "description": "Printable grounding exercises for anxious moments.",
+    "isFeatured": false,
+    "category": "Anxiety"
+  },
+  {
+    "id": "m6",
+    "title": "Yoga Nidra — Deep Rest",
+    "type": "image",
+    "url": "download1.jpg",
+    "thumbnailUrl": "download1.jpg",
+    "collectionId": "beginner-breathwork",
+    "isFeatured": false,
+    "category": "Inspiration"
+  }
+]

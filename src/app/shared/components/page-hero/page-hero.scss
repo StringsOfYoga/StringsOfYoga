@@ -1,0 +1,30 @@
+.page-hero {
+  padding: 5rem 0 3.5rem;
+  background: var(--light-color, #f3f2ec);
+  margin-bottom: 2rem;
+
+  &__eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.75rem;
+    color: var(--accent-color, #c5a992);
+    margin-bottom: 0.75rem;
+  }
+
+  &__title {
+    font-family: var(--heading-font);
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-weight: 400;
+    line-height: 1.15;
+    margin: 0 0 1rem;
+    color: var(--dark-color, #2f2f2f);
+  }
+
+  &__subtitle {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--body-text-color, #757575);
+    margin: 0 auto;
+    max-width: 36rem;
+  }
+}

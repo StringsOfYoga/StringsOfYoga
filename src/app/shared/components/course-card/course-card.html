@@ -1,0 +1,20 @@
+<div class="product-item course-card h-100">
+  <figure class="product-style">
+    <div class="music-case">
+      <div class="front-case">
+        <img [src]="course.image" [alt]="course.title" loading="lazy" />
+      </div>
+      <div class="disc"><div class="hole"></div></div>
+      <div class="back-case"></div>
+    </div>
+    <a [routerLink]="['/contact']" [queryParams]="{ interest: course.title }" class="add-to-cart">
+      Book session
+    </a>
+  </figure>
+  <figcaption>
+    <h3>{{ course.title }}</h3>
+    <span>{{ course.duration }} · {{ course.level }}</span>
+    <p class="course-card__desc">{{ course.description }}</p>
+    <p class="course-card__format"><small>{{ course.format }}</small></p>
+  </figcaption>
+</div>
