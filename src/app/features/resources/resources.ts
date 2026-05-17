@@ -7,10 +7,12 @@ import { ContentRepositoryService } from '../../core/services/content-repository
 import { SeoService } from '../../core/services/seo.service';
 import { ContentCollection, ContentMedia } from '../../core/models/content.models';
 import GLightbox from 'glightbox';
+import { PdfViewer } from '../../shared/components/pdf-viewer/pdf-viewer';
 
+// Renders the resource library page with search, filters, and media items
 @Component({
   selector: 'app-resources',
-  imports: [PageHero, MediaCard, FormsModule],
+  imports: [PageHero, MediaCard, PdfViewer, FormsModule],
   templateUrl: './resources.html',
   styleUrl: './resources.scss'
 })
@@ -27,6 +29,12 @@ export class Resources implements OnInit, AfterViewInit {
   selectedCollectionId = '';
   loading = true;
   loadError = '';
+
+  pdfViewer = {
+    isOpen: false,
+    url: '',
+    title: ''
+  };
 
   readonly typeFilters = [
     { id: 'all', label: 'All' },
@@ -92,6 +100,18 @@ export class Resources implements OnInit, AfterViewInit {
   setTypeFilter(type: string): void {
     this.typeFilter = type;
     this.loadMedia();
+  }
+
+  onOpenPdf(media: ContentMedia): void {
+    this.pdfViewer = {
+      isOpen: true,
+      url: media.url,
+      title: media.title
+    };
+  }
+
+  onClosePdf(): void {
+    this.pdfViewer.isOpen = false;
   }
 
   private initLightbox(): void {

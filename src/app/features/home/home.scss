@@ -12,7 +12,9 @@
     overflow: hidden;
     border-radius: 10px;
 }
-
+.banner-image {
+    object-fit: cover;
+}
 .featured-img {
     height: 100%;
     min-height: 250px;

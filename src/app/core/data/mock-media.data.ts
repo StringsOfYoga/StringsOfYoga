@@ -47,7 +47,7 @@ export const MOCK_MEDIA: ContentMedia[] = [
     id: 'm5',
     title: 'Grounding PDF Guide',
     type: 'pdf',
-    url: '#',
+    url: '/assets/STRINGS OF YOGA planning-.pdf',
     thumbnailUrl: 'download5.jpg',
     collectionId: 'anxiety-relief-series',
     description: 'Printable grounding exercises for anxious moments.',

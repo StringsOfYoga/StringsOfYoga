@@ -6,55 +6,54 @@
 
 <section class="page-section">
   <div class="container">
-    <div class="row mb-4 g-3 align-items-end">
-      <div class="col-lg-6">
+    <div class="resource-controls">
+      <div class="search-field">
         <label class="visually-hidden" for="resource-search">Search resources</label>
+        <svg class="search-field__icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
         <input
           id="resource-search"
           type="search"
-          class="form-control"
+          class="search-field__input"
           placeholder="Search by title or topic…"
           [(ngModel)]="searchTerm"
           (keyup.enter)="onSearch()"
         />
       </div>
-      <div class="col-lg-3">
-        <button type="button" class="btn btn-common btn-pill w-100" (click)="onSearch()">Search</button>
-      </div>
-    </div>
 
-    <ul class="nav nav-pills mb-4 justify-content-center flex-wrap" role="tablist">
-      @for (f of typeFilters; track f.id) {
-        <li class="nav-item" role="presentation">
+      <div class="filter-group" role="tablist">
+        @for (f of typeFilters; track f.id) {
           <button
             type="button"
-            class="nav-link"
+            class="filter-group__btn"
             [class.active]="typeFilter === f.id"
             (click)="setTypeFilter(f.id)"
           >
             {{ f.label }}
           </button>
-        </li>
-      }
-    </ul>
-
-    @if (collections.length) {
-      <div class="mb-4 text-center">
-        <p class="text-muted mb-2">Collections</p>
-        <div class="d-flex flex-wrap gap-2 justify-content-center">
-          @for (c of collections; track c.id) {
-            <button
-              type="button"
-              class="nav-link collection-pill"
-              [class.active]="selectedCollectionId === c.id"
-              (click)="selectCollection(c.id)"
-            >
-              {{ c.name }}
-            </button>
-          }
-        </div>
+        }
       </div>
-    }
+
+      @if (collections.length) {
+        <div class="collection-chips">
+          <span class="collection-chips__label">Collections</span>
+          <div class="collection-chips__list">
+            @for (c of collections; track c.id) {
+              <button
+                type="button"
+                class="chip-btn"
+                [class.active]="selectedCollectionId === c.id"
+                (click)="selectCollection(c.id)"
+              >
+                {{ c.name }}
+              </button>
+            }
+          </div>
+        </div>
+      }
+    </div>
 
     @if (loadError) {
       <p class="empty-state" role="alert">{{ loadError }}</p>
@@ -66,10 +65,18 @@
       <div class="row g-4">
         @for (item of mediaItems; track item.id) {
           <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up">
-            <app-media-card [media]="item" />
+            <app-media-card [media]="item" (openPdf)="onOpenPdf($event)" />
           </div>
         }
       </div>
     }
   </div>
+
+  <app-pdf-viewer
+    [pdfUrl]="pdfViewer.url"
+    [title]="pdfViewer.title"
+    [isOpen]="pdfViewer.isOpen"
+    (close)="onClosePdf()"
+  />
 </section>
+<!-- End of resource library page -->
