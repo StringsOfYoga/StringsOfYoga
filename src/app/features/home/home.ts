@@ -5,28 +5,15 @@ import { Router } from '@angular/router';
 import * as AOS from 'aos';
 declare var $: any;
 import GLightbox from 'glightbox';
+import { AuthService } from '../../core/services/auth.service';
+import { CollectionService } from '../../core/services/collection.service';
+import { MediaService } from '../../core/services/media.service';
 import {
-  AzureFunctionsApiService,
   CollectionRequest,
-  MediaRequest
-} from '../services/azure-functions-api.service';
-
-interface GalleryCollection {
-  id?: string;
-  name?: string;
-  title?: string;
-  description?: string;
-}
-
-interface GalleryMedia {
-  id?: string;
-  title?: string;
-  type?: 'audio' | 'video' | 'image' | string;
-  url?: string;
-  thumbnailUrl?: string;
-  collectionId?: string;
-  isFeatured?: boolean;
-}
+  MediaRequest,
+  GalleryCollection,
+  GalleryMedia
+} from '../../core/models/api.models';
 
 @Component({
   selector: 'app-home',
@@ -67,7 +54,9 @@ export class Home implements AfterViewInit {
   constructor(
     private router: Router,
     private zone: NgZone,
-    private readonly api: AzureFunctionsApiService
+    private readonly authService: AuthService,
+    private readonly collectionService: CollectionService,
+    private readonly mediaService: MediaService
   ) {
     this.router.events.subscribe(() => {
       setTimeout(() => this.initLightbox());
@@ -137,7 +126,7 @@ export class Home implements AfterViewInit {
   register(): void {
     this.isBusy = true;
     this.authMessage = '';
-    this.api.register(this.registerForm).subscribe({
+    this.authService.register(this.registerForm).subscribe({
       next: () => {
         this.isBusy = false;
         this.authMessage = 'Registration successful. Please login.';
@@ -152,7 +141,7 @@ export class Home implements AfterViewInit {
   login(): void {
     this.isBusy = true;
     this.authMessage = '';
-    this.api.login(this.loginForm).subscribe({
+    this.authService.login(this.loginForm).subscribe({
       next: res => {
         this.isBusy = false;
         this.authToken = res?.token ?? res?.accessToken ?? '';
@@ -169,7 +158,7 @@ export class Home implements AfterViewInit {
 
   createCollection(): void {
     this.isBusy = true;
-    this.api.createCollection(this.collectionForm).subscribe({
+    this.collectionService.createCollection(this.collectionForm).subscribe({
       next: () => {
         this.isBusy = false;
         this.apiMessage = 'Collection created successfully.';
@@ -185,7 +174,7 @@ export class Home implements AfterViewInit {
 
   createMedia(): void {
     this.isBusy = true;
-    this.api.createMedia(this.mediaForm).subscribe({
+    this.mediaService.createMedia(this.mediaForm).subscribe({
       next: () => {
         this.isBusy = false;
         this.apiMessage = 'Media created successfully.';
@@ -214,7 +203,7 @@ export class Home implements AfterViewInit {
     }
 
     this.isBusy = true;
-    this.api.deleteMedia(this.deleteMediaId.trim()).subscribe({
+    this.mediaService.deleteMedia(this.deleteMediaId.trim()).subscribe({
       next: () => {
         this.isBusy = false;
         this.apiMessage = 'Media deleted successfully.';
@@ -230,7 +219,7 @@ export class Home implements AfterViewInit {
 
   searchMedia(): void {
     this.isBusy = true;
-    this.api.searchMedia(this.searchTerm).subscribe({
+    this.mediaService.searchMedia(this.searchTerm).subscribe({
       next: res => {
         this.isBusy = false;
         this.mediaItems = this.normalizeList<GalleryMedia>(res);
@@ -248,7 +237,7 @@ export class Home implements AfterViewInit {
       return;
     }
     this.isBusy = true;
-    this.api.getMediaByCollection(collectionId).subscribe({
+    this.mediaService.getMediaByCollection(collectionId).subscribe({
       next: res => {
         this.isBusy = false;
         this.mediaItems = this.normalizeList<GalleryMedia>(res);
@@ -262,17 +251,17 @@ export class Home implements AfterViewInit {
   }
 
   refreshGalleryData(): void {
-    this.api.getCollections().subscribe({
+    this.collectionService.getCollections().subscribe({
       next: res => (this.collections = this.normalizeList<GalleryCollection>(res)),
       error: () => (this.collections = [])
     });
 
-    this.api.getFeaturedCollections().subscribe({
+    this.collectionService.getFeaturedCollections().subscribe({
       next: res => (this.featuredCollections = this.normalizeList<GalleryCollection>(res)),
       error: () => (this.featuredCollections = [])
     });
 
-    this.api.getFeaturedMedia().subscribe({
+    this.mediaService.getFeaturedMedia().subscribe({
       next: res => {
         this.mediaItems = this.normalizeList<GalleryMedia>(res);
         this.zone.runOutsideAngular(() => setTimeout(() => this.initLightbox(), 0));
@@ -288,7 +277,7 @@ export class Home implements AfterViewInit {
     }
 
     this.isBusy = true;
-    this.api.getUploadSignature(this.uploadRequest).subscribe({
+    this.mediaService.getUploadSignature(this.uploadRequest).subscribe({
       next: res => {
         this.isBusy = false;
         this.uploadSignatureResponse = JSON.stringify(res);
