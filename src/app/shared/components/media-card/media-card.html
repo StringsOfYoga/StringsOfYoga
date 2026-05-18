@@ -1,0 +1,64 @@
+<article class="media-card h-100" [class.video-card]="media.type === 'video'" [class.audio-card]="media.type === 'audio'">
+  @switch (media.type) {
+    @case ('audio') {
+      <div class="media-thumb" [style.background-image]="'url(' + thumbUrl() + ')'">
+        <div class="audio-wave" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+      <div class="media-info">
+        <span class="media-type">{{ media.category || 'Audio' }}</span>
+        <h3>{{ media.title }}</h3>
+        @if (media.description) {
+          <p class="media-desc">{{ media.description }}</p>
+        }
+        <audio controls class="w-100" [attr.aria-label]="'Play ' + media.title">
+          <source [src]="media.url" type="audio/mpeg" />
+        </audio>
+      </div>
+    }
+    @case ('video') {
+      <div class="media-thumb" [style.background-image]="'url(' + thumbUrl() + ')'">
+        <a
+          [href]="media.url"
+          class="play-btn glightbox"
+          data-type="video"
+          [attr.aria-label]="'Play video: ' + media.title"
+        >
+          <span aria-hidden="true">▶</span>
+        </a>
+      </div>
+      <div class="media-info">
+        <span class="media-type">{{ media.category || 'Video' }}</span>
+        <h3>{{ media.title }}</h3>
+      </div>
+    }
+    @case ('pdf') {
+      <div class="media-thumb media-thumb--pdf">
+        <span class="pdf-icon" aria-hidden="true">PDF</span>
+      </div>
+      <div class="media-info">
+        <span class="media-type">{{ media.category || 'PDF' }}</span>
+        <h3>{{ media.title }}</h3>
+        @if (media.description) {
+          <p class="media-desc">{{ media.description }}</p>
+        }
+        <button type="button" class="btn-view-pdf" (click)="onPdfClick()">
+          Open PDF
+        </button>
+      </div>
+    }
+    @default {
+      <a
+        [href]="media.url"
+        class="media-thumb glightbox"
+        [style.background-image]="'url(' + thumbUrl() + ')'"
+        [attr.aria-label]="'View image: ' + media.title"
+      ></a>
+      <div class="media-info">
+        <span class="media-type">{{ media.category || 'Image' }}</span>
+        <h3>{{ media.title }}</h3>
+      </div>
+    }
+  }
+</article>

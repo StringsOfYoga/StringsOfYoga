@@ -1,0 +1,23 @@
+<app-page-hero
+  title="Courses & Sessions"
+  eyebrow="Practice with us"
+  subtitle="Each offering is paced slowly, held with care, and designed to meet you where you are."
+/>
+
+<section class="page-section">
+  <div class="container">
+    @if (loading) {
+      <p class="loading-state" role="status">Loading sessions…</p>
+    } @else if (!courses.length) {
+      <p class="empty-state">Sessions will appear here soon.</p>
+    } @else {
+      <div class="row g-4">
+        @for (course of courses; track course.id) {
+          <div class="col-md-6 col-lg-4" data-aos="fade-up">
+            <app-course-card [course]="course" />
+          </div>
+        }
+      </div>
+    }
+  </div>
+</section>

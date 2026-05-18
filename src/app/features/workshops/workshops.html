@@ -1,0 +1,21 @@
+<app-page-hero
+  title="Workshops"
+  eyebrow="Held with warmth"
+  subtitle="Small-group immersions for mental wellness. Booking is simple—reach out when you feel ready."
+/>
+
+<section class="page-section">
+  <div class="container">
+    @if (loading) {
+      <p class="loading-state" role="status">Loading workshops…</p>
+    } @else {
+      <div class="row g-4">
+        @for (w of workshops; track w.id) {
+          <div class="col-md-6 col-lg-4">
+            <app-workshop-card [workshop]="w" />
+          </div>
+        }
+      </div>
+    }
+  </div>
+</section>

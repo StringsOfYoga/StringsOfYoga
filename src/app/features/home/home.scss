@@ -1,0 +1,213 @@
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+.h-entry {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 10px;
+}
+.banner-image {
+    object-fit: cover;
+}
+.featured-img {
+    height: 100%;
+    min-height: 250px;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.4s ease;
+}
+
+.h-entry:hover .featured-img {
+    transform: scale(1.05);
+}
+
+.text {
+    position: absolute;
+    bottom: 0;
+    padding: 20px;
+    color: #fff;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 1));
+    width: 100%;
+}
+
+.play-icon {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    color: rgba(255, 255, 255, 0.9);
+    pointer-events: none;
+}
+
+// .v-height {
+//   height: 300px;
+// }
+
+.img-5 {
+    height: 100%;
+}
+
+.glightbox-inline-content {
+    display: none;
+}
+
+.retro-layout h2 {
+    color: #fff;
+
+}
+
+
+// music records
+
+
+.music-case {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    margin-bottom: 30px;
+    cursor: pointer;
+
+    .icon {
+        width: 30px;
+        height: 130px;
+        background-color: red;
+        transform: skew(-20deg);
+        background-image: linear-gradient(#E080D2, #f79374);
+    }
+
+    .icon:before {
+        content: " ";
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        position: absolute;
+        bottom: -20px;
+        right: 2px;
+        background-color: red;
+        transform: skew(20deg);
+        background-color: #F79374;
+    }
+}
+
+
+
+.front-case,
+.back-case {
+    // width: 300px;
+    // height: 300px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease;
+    will-change: transform;
+}
+
+.front-case {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    height: inherit;
+    justify-content: center;
+
+}
+
+.back-case {
+    z-index: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    box-shadow: 0 20px 30px -5px rgba(0, 0, 0, 0.3);
+}
+
+.disc {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background-color: #333;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    transition: transform 0.5s ease-out;
+    z-index: 1;
+    overflow: hidden;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    background-image: repeating-radial-gradient(circle 10em at center, #0a1113 0%, #022932 2.2%, #131f21 3.6%, #0b1d21 4.8%, #0b1d21 4.8%, #102b31 6.7%);
+    will-change: transform;
+}
+
+.disc:before,
+.disc:after {
+    content: " ";
+    border-bottom: 140px solid rgba(255, 255, 255, 0.1);
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    height: 0;
+    width: 10px;
+    position: absolute;
+}
+
+.disc:before {
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 50%;
+}
+
+.disc:after {
+    left: 0;
+    right: 0;
+    margin: auto;
+    transform: rotate(180deg);
+}
+
+.hole {
+    width: 100px;
+    height: 100px;
+    background-color: #e74c3c;
+    border-radius: 50%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+    z-index: 1;
+}
+
+.hole:before {
+    content: " ";
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #efefef;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    margin: auto;
+    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.music-case:hover .front-case,
+.music-case:hover .back-case {
+    transform: translateX(-100px);
+}
+
+.music-case:hover .disc {
+    transform: translateX(100px) rotate(380deg);
+}
+
+
+
+// music records

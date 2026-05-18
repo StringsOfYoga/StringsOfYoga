@@ -1,0 +1,55 @@
+<div id="header-wrap">
+  <div class="top-content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="social-links">
+            <ul>
+              <li><a href="#" aria-label="Facebook"><i class="icon icon-facebook"></i></a></li>
+              <li><a href="#" aria-label="Twitter"><i class="icon icon-twitter"></i></a></li>
+              <li><a href="#" aria-label="YouTube"><i class="icon icon-youtube-play"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header id="header">
+    <div class="container-fluid">
+      <div class="row align-items-center">
+        <div class="col-md-2 header-logo-col">
+          <div class="main-logo">
+            <a routerLink="/"><img src="/assets/images/soy-logo-bw.png" width="100" alt="Strings of Yoga logo" /></a>
+          </div>
+        </div>
+
+        <div class="col-md-10 header-nav-col">
+          <nav id="navbar" aria-label="Main navigation">
+            <div class="main-menu stellarnav">
+              <ul class="menu-list">
+                @for (item of navItems; track item.path) {
+                  <li class="menu-item">
+                    <a
+                      [routerLink]="item.path"
+                      routerLinkActive="active"
+                      [routerLinkActiveOptions]="{ exact: item.exact }"
+                    >
+                      {{ item.label }}
+                    </a>
+                  </li>
+                }
+              </ul>
+
+              <div class="hamburger" aria-hidden="true">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>

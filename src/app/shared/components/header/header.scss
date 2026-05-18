@@ -1,0 +1,18 @@
+#navbar {
+  text-align: end;
+}
+
+.header-logo-col {
+  width: 30%;
+}
+
+.header-nav-col {
+  width: 70%;
+}
+
+@media screen and (max-width: 768px) {
+  .header-logo-col,
+  .header-nav-col {
+    width: 100%;
+  }
+}

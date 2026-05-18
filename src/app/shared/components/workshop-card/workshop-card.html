@@ -1,0 +1,20 @@
+<article class="workshop-card soft-card h-100" data-aos="fade-up">
+  <div class="workshop-card__media" [style.background-image]="'url(' + workshop.image + ')'">
+    <span class="workshop-card__category">{{ workshop.category }}</span>
+  </div>
+  <div class="workshop-card__body">
+    <time class="workshop-card__date" [attr.datetime]="workshop.date">
+      {{ workshop.date | date: 'mediumDate' }} · {{ workshop.time }}
+    </time>
+    <h3>{{ workshop.title }}</h3>
+    <p>{{ workshop.description }}</p>
+    <ul class="workshop-card__meta list-unstyled">
+      <li>{{ workshop.location }}</li>
+      <li>{{ workshop.duration }}</li>
+      <li>{{ workshop.spots }} spots available</li>
+    </ul>
+    <a [routerLink]="['/contact']" [queryParams]="{ workshop: workshop.id }" class="btn btn-outline-accent btn-pill">
+      Reserve your place
+    </a>
+  </div>
+</article>

@@ -1,0 +1,35 @@
+.testimonial-card {
+  padding: 2rem;
+  margin: 0;
+
+  &__quote {
+    font-size: 1.1rem;
+    line-height: 1.75;
+    font-style: italic;
+    color: var(--dark-color);
+    margin: 0 0 1.5rem;
+  }
+
+  &__author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    img {
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    cite {
+      display: block;
+      font-style: normal;
+      font-weight: 600;
+      font-family: var(--heading-font);
+    }
+
+    span {
+      font-size: 0.85rem;
+      color: var(--body-text-color);
+    }
+  }
+}

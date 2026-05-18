@@ -1,0 +1,17 @@
+<app-page-hero
+  title="Testimonials"
+  eyebrow="Human stories"
+  subtitle="Gentle words from people who have shared this space—no performance, only presence."
+/>
+
+<section id="quotation" class="page-section">
+  <div class="container">
+    <div class="row g-4">
+      @for (t of testimonials; track t.id) {
+        <div class="col-md-4">
+          <app-testimonial-card [testimonial]="t" />
+        </div>
+      }
+    </div>
+  </div>
+</section>

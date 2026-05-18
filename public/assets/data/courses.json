@@ -1,0 +1,52 @@
+[
+  {
+    "id": "yog-nidra",
+    "title": "Yog Nidra",
+    "description": "Deep rest practices that guide the body into healing stillness and gentle self-inquiry.",
+    "duration": "45–60 min",
+    "level": "All levels",
+    "format": "Live & recorded",
+    "image": "download1.jpg",
+    "slug": "yog-nidra"
+  },
+  {
+    "id": "hatha-yoga",
+    "title": "Hatha Yoga",
+    "description": "Slow, grounding postures paired with conscious breath to build strength with softness.",
+    "duration": "60 min",
+    "level": "Beginner friendly",
+    "format": "In-studio & online",
+    "image": "download2.jpg",
+    "slug": "hatha-yoga"
+  },
+  {
+    "id": "pregnancy-yoga",
+    "title": "Pregnancy Yoga",
+    "description": "Nourishing movement and breath tailored for each trimester—with care for mother and baby.",
+    "duration": "50 min",
+    "level": "Prenatal",
+    "format": "Small groups",
+    "image": "download3.jpg",
+    "slug": "pregnancy-yoga"
+  },
+  {
+    "id": "restorative-yoga",
+    "title": "Restorative Yoga",
+    "description": "Supported poses and long holds to release tension and invite deep nervous-system rest.",
+    "duration": "75 min",
+    "level": "Gentle",
+    "format": "In-person",
+    "image": "download4.jpg",
+    "slug": "restorative-yoga"
+  },
+  {
+    "id": "breathwork",
+    "title": "Breathwork",
+    "description": "Conscious breathing sequences to regulate stress, expand capacity, and anchor presence.",
+    "duration": "30–45 min",
+    "level": "All levels",
+    "format": "Workshop & 1:1",
+    "image": "download5.jpg",
+    "slug": "breathwork"
+  }
+]

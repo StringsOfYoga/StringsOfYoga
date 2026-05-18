@@ -1,0 +1,46 @@
+@if (site) {
+  <app-page-hero
+    title="About"
+    eyebrow="Our story"
+    [subtitle]="site.about.headline"
+  />
+
+  <section class="page-section">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-5" data-aos="fade-right">
+          <img [src]="site.about.image" alt="Yoga instructor" class="img-fluid rounded-4" loading="lazy" />
+        </div>
+        <div class="col-lg-7" data-aos="fade-left">
+          <h2 class="section-title divider">Who we are</h2>
+          <p>{{ site.about.story }}</p>
+          <p>{{ site.about.philosophy }}</p>
+          <div class="btn-wrap mt-4">
+            <a routerLink="/courses" class="btn btn-outline-accent btn-accent-arrow btn-pill">
+              Explore sessions<i class="icon icon-ns-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section page-section--alt">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-6" data-aos="fade-up">
+          <div class="soft-card p-4 h-100">
+            <h3>Mission</h3>
+            <p>{{ site.brand.mission }}</p>
+          </div>
+        </div>
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="150">
+          <div class="soft-card p-4 h-100">
+            <h3>Vision</h3>
+            <p>{{ site.brand.vision }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+}
