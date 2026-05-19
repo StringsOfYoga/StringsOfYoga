@@ -1055,10 +1055,14 @@ fieldset[disabled] a.btn {
 .btn.btn-outline-dark,
 .btn.btn-outline-light,
 .btn.btn-outline-accent {
-    border: 1px solid #fff;
+    border: 1.5px solid var(--border-color);
     background: transparent;
     text-shadow: none;
     box-shadow: none;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    transition: all var(--transition-normal);
 }
 
 .btn.btn-outline-dark:hover::after,
@@ -1082,11 +1086,16 @@ fieldset[disabled] a.btn {
     background: transparent;
     border-color: var(--accent-color);
     color: var(--accent-color);
+    padding: 0.6rem 1.75rem;
+    font-size: 0.82rem;
 }
 
 .btn.btn-outline-accent:hover {
-    border-color: var(--dark-color);
-    color: var(--dark-color) !important;
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #fff !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(122, 139, 114, 0.25);
 }
 
 .btn.btn-outline-light {
@@ -1136,23 +1145,36 @@ fieldset[disabled] a.btn {
 /* - Buttons Color Scheme
 ------------------------------------------------------------- */
 .btn.btn-common {
-    background: var(--accent-color);
-    color: #fff;
+    background: var(--button-bg);
+    color: var(--button-text);
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 0.65rem 1.75rem;
+    font-size: 0.82rem;
+    transition: all var(--transition-normal);
 }
 
 .btn.btn-common:hover {
-    background: #151515;
+    background: var(--button-hover);
     color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(122, 139, 114, 0.3);
 }
 
 .btn.btn-accent {
     color: #ffffff;
     background-color: var(--accent-color);
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    transition: all var(--transition-normal);
 }
 
 .btn.btn-accent:hover {
     color: #ffffff !important;
-    background-color: #121212;
+    background-color: var(--accent-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(122, 139, 114, 0.3);
 }
 
 .btn.btn-gray,
@@ -1674,11 +1696,14 @@ button {
 }
 
 .section-title {
-    font-size: 3em;
-    font-weight: 500;
-    line-height: 1;
+    font-family: var(--heading-font);
+    font-size: 2.5rem;
+    font-weight: 400;
+    line-height: 1.2;
     position: relative;
-    margin-bottom: 50px;
+    margin-bottom: 2rem;
+    color: var(--dark-text-color);
+    letter-spacing: -0.01em;
 }
 
 .section-title.divider {
@@ -1687,20 +1712,20 @@ button {
 
 .section-title.divider:after {
     content: "";
-    border-bottom: 3px solid #74642F;
+    border-bottom: 2px solid var(--gold-accent);
     position: absolute;
     right: 0;
-    bottom: -16px;
+    bottom: -12px;
     left: 0;
-    width: 50px;
+    width: 40px;
 }
 
 .section-header .section-title:before,
 .section-header .section-title:after {
     content: "";
-    border-bottom: 1px solid #E0E0E0;
+    border-bottom: 1px solid var(--border-color);
     position: absolute;
-    top: 30px;
+    top: 50%;
     width: 25%;
     align-items: center;
 }
@@ -1714,9 +1739,13 @@ button {
 }
 
 .section-header .title span {
-    font-size: 14px;
-    color: #afafaf;
+    font-size: 0.75rem;
+    color: var(--light-text-color);
     text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.75rem;
 }
 
 
@@ -1906,19 +1935,46 @@ img.post-image {
 /* - Main Navigation
 ------------------------------------------------------------- */
 #header {
-    padding: 20px 0;
-    border-bottom: 1px solid #E0E0E0;
-    background-color: #f3f2ec;
+    padding: 0;
+    border-bottom: 1px solid var(--header-border);
+    background: var(--header-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 #header .menu-list a {
     text-transform: uppercase;
-    font-weight: 500;
-    letter-spacing: 0.12em;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    font-size: 0.78rem;
+    color: var(--header-text);
+    padding: 1.25rem 1rem;
+    position: relative;
+    transition: color var(--transition-normal);
+}
+
+#header .menu-list a:hover {
+    color: var(--header-hover);
 }
 
 #header .menu-list a.active {
     color: var(--accent-color);
+}
+
+#header .menu-list a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 2px;
+    background: var(--gold-accent);
+    border-radius: 2px;
 }
 
 /*----- Billboard
@@ -1940,13 +1996,29 @@ img.post-image {
 }
 
 .banner-content h2.banner-title {
-    font-size: 4.5em;
-    font-weight: 500;
-    color: #222;
+    font-family: var(--heading-font);
+    font-size: 3.5rem;
+    font-weight: 400;
+    color: var(--dark-text-color);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.25rem;
 }
 
 .banner-content p {
-    margin: 0 0 30px 0;
+    margin: 0 0 2rem 0;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--body-text-color);
+}
+
+.banner-content .btn-wrap {
+    gap: 1rem;
+}
+
+.banner-content .btn {
+    padding: 0.75rem 2rem;
+    font-size: 0.85rem;
 }
 
 #billboard .slick-dots {
@@ -2448,36 +2520,72 @@ span.prev-price {
 /*----- Footer Section
 --------------------------------------------------------------*/
 footer#footer {
-    padding-bottom: 80px;
-    margin-top: 100px;
-    margin-bottom: 60px;
-    border-bottom: 1px solid #E0E0E0;
+    padding: 4rem 0 3rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--section-bg);
 }
 
 #footer .footer-item {
-    margin-right: 100px;
+    margin-right: 60px;
 }
 
 #footer .footer-item img.footer-logo {
-    margin-bottom: 40px;
+    margin-bottom: 1.5rem;
+    opacity: 0.85;
+    transition: opacity var(--transition-normal);
+
+    &:hover {
+        opacity: 1;
+    }
 }
 
 #footer .footer-item p {
-    width: 80%;
+    width: 90%;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--body-text-color);
 }
 
 #footer .footer-menu {
-    margin-right: 40px;
-    margin-bottom: 40px;
+    margin-right: 30px;
+    margin-bottom: 2rem;
 }
 
 #footer .footer-menu ul {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 #footer .footer-menu ul a {
-    color: var(--dark-text-color);
+    color: var(--body-text-color);
     text-decoration: none;
+    font-size: 0.88rem;
+    display: inline-block;
+    padding: 0.3rem 0;
+    position: relative;
+    transition: color var(--transition-normal);
+
+    &:hover {
+        color: var(--accent-color);
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: var(--gold-accent);
+        transition: width var(--transition-normal);
+    }
+
+    &:hover::after {
+        width: 100%;
+    }
 }
 
 #footer .footer-menu:last-child {
@@ -2485,16 +2593,59 @@ footer#footer {
 }
 
 .footer-menu h5 {
-    font-size: 1.5em;
-    font-weight: 500;
+    font-family: var(--heading-font);
+    font-size: 1.1rem;
+    font-weight: 400;
     margin-top: 0;
-    margin-bottom: 40px;
+    margin-bottom: 1.25rem;
     text-transform: capitalize;
+    color: var(--dark-text-color);
+    letter-spacing: 0.02em;
+}
+
+#footer-bottom {
+    padding: 1.5rem 0;
+    background: var(--light-color);
+    border-top: 1px solid var(--border-color);
+
+    .copyright p {
+        font-size: 0.82rem;
+        color: var(--light-text-color);
+        margin: 0;
+    }
+
+    .social-links ul {
+        justify-content: flex-end;
+    }
+
+    .social-links a {
+        color: var(--light-text-color);
+        font-size: 0.9rem;
+        transition: color var(--transition-normal);
+
+        &:hover {
+            color: var(--accent-color);
+        }
+    }
 }
 
 @media screen and (max-width: 768px) {
     #footer .footer-item {
         margin-right: 0;
+        margin-bottom: 2rem;
+    }
+
+    #footer .footer-menu {
+        margin-right: 0;
+    }
+
+    footer#footer {
+        padding: 3rem 0 2rem;
+    }
+
+    #footer-bottom .social-links ul {
+        justify-content: flex-start;
+        margin-top: 1rem;
     }
 }
 
@@ -2731,23 +2882,41 @@ footer#footer {
 
 /* — Strings of Yoga: shared page utilities — */
 .soft-card {
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(47, 47, 47, 0.06);
-    transition: transform 0.45s ease, box-shadow 0.45s ease;
+    background: var(--card-bg);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
 
     &:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 28px rgba(47, 47, 47, 0.09);
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
     }
 }
 
 .page-section {
-    padding: 3rem 0 4rem;
+    padding: 4rem 0;
 }
 
 .page-section--alt {
-    background: #edebe4;
+    background: var(--section-bg);
+}
+
+.page-section + .page-section {
+    padding-top: 2.5rem;
+}
+
+/* Section contrast rhythm */
+section:nth-child(odd) {
+    background: var(--light-color);
+}
+
+section:nth-child(even) {
+    background: var(--section-bg);
+}
+
+section:first-of-type {
+    background: transparent;
 }
 
 .btn.btn-pill {
@@ -2804,11 +2973,11 @@ footer#footer {
 /* -- Header Theme: Creme & Pastel Olive
 --------------------------------------------------------------*/
 .top-content {
-    background: #f5f3eb;
-    border-bottom: 1px solid rgba(197, 169, 146, 0.2);
+    background: var(--section-bg);
+    border-bottom: 1px solid var(--header-border);
 
     a {
-        color: #8a7e6b;
+        color: var(--body-text-color);
 
         &:hover {
             color: var(--accent-color);
@@ -2816,41 +2985,80 @@ footer#footer {
     }
 }
 
-#header {
-    background: linear-gradient(180deg, #f8f6f0 0%, #f3f1e9 100%);
-    border-bottom: 1px solid rgba(197, 169, 146, 0.25);
-    padding: 16px 0;
+/* — Micro-interactions & Global Polish — */
 
-    .menu-list a {
-        color: #6b6355;
-        font-size: 0.82rem;
-        letter-spacing: 0.14em;
+/* Card hover lift */
+.media-card,
+.product-item,
+.soft-card {
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
 
-        &:hover {
-            color: var(--accent-color);
-        }
-
-        &.active {
-            color: var(--accent-color);
-        }
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
     }
 }
 
-@media (max-width: 768px) {
-    #header {
-        padding: 12px 0;
+/* Image zoom on hover */
+figure img,
+.post-image,
+.product-item img {
+    transition: transform 0.5s ease;
+}
+
+figure:hover img,
+.image-hvr-effect:hover img {
+    transform: scale(1.03);
+}
+
+/* Link underline animation */
+a:not(.btn):not(.nav-link):not(.menu-item a) {
+    position: relative;
+    text-decoration: none;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: var(--gold-accent);
+        transition: width var(--transition-normal);
     }
 
-    .header-logo img {
-        width: 85px;
+    &:hover::after {
+        width: 100%;
     }
+}
 
-    #navbar {
-        .stellarnav {
-            .menu-list .menu-item a {
-                font-size: 0.9rem;
-                padding: 0.85rem 0;
-            }
-        }
-    }
+/* Button hover transitions */
+.btn {
+    transition: all var(--transition-normal);
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Section spacing consistency */
+section {
+    transition: background var(--transition-normal);
+}
+
+/* Typography improvements */
+h1, h2, h3 {
+    color: var(--dark-text-color);
+    font-weight: 400;
+}
+
+h4, h5, h6 {
+    color: var(--dark-text-color);
+    font-weight: 500;
+}
+
+p {
+    color: var(--body-text-color);
+    line-height: 1.75;
 }

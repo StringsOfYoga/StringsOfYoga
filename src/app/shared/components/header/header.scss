@@ -3,11 +3,22 @@
   align-items: center;
   justify-content: space-between;
   position: relative;
+  padding: 0.75rem 0;
 }
 
 .header-logo {
   flex-shrink: 0;
   z-index: 11;
+
+  img {
+    height: 42px;
+    width: auto;
+    transition: transform var(--transition-normal);
+
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
 }
 
 .mobile-menu-toggle {
@@ -27,7 +38,7 @@
     display: block;
     width: 22px;
     height: 2px;
-    background: var(--dark-color);
+    background: var(--dark-text-color);
     border-radius: 2px;
     transition: all 0.3s ease;
 
@@ -69,19 +80,32 @@
         display: inline-block;
         padding: 0.5rem 1rem;
         text-decoration: none;
-        color: #6b6355;
-        font-size: 0.82rem;
-        font-weight: 500;
+        color: var(--header-text);
+        font-size: 0.78rem;
+        font-weight: 600;
         text-transform: uppercase;
-        letter-spacing: 0.14em;
-        transition: color 0.3s ease;
+        letter-spacing: 0.1em;
+        transition: color var(--transition-normal);
+        position: relative;
 
         &:hover {
-          color: var(--accent-color);
+          color: var(--header-hover);
         }
 
         &.active {
           color: var(--accent-color);
+
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 2px;
+            background: var(--gold-accent);
+            border-radius: 2px;
+          }
         }
       }
     }
@@ -113,12 +137,16 @@
         a {
           display: block;
           padding: 0.85rem 0;
-          font-size: 0.95rem;
-          border-bottom: 1px solid rgba(197, 169, 146, 0.15);
-          letter-spacing: 0.1em;
+          font-size: 0.9rem;
+          border-bottom: 1px solid rgba(122, 139, 114, 0.1);
+          letter-spacing: 0.08em;
 
           &:last-child {
             border-bottom: none;
+          }
+
+          &.active::after {
+            display: none;
           }
         }
       }
@@ -129,5 +157,9 @@
 @media (max-width: 768px) {
   .mobile-menu-toggle {
     display: flex;
+  }
+
+  .header-bar {
+    padding: 0.5rem 0;
   }
 }
