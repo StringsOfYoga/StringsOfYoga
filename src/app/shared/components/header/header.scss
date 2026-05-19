@@ -1,18 +1,133 @@
+.header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.header-logo {
+  flex-shrink: 0;
+  z-index: 11;
+}
+
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  z-index: 11;
+
+  .bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--dark-color);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+
+    &:not(:last-child) {
+      margin-bottom: 5px;
+    }
+  }
+
+  &.open {
+    .bar:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .bar:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+  }
+}
+
 #navbar {
+  flex: 1;
   text-align: end;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+
+  .menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 0;
+    justify-content: flex-end;
+
+    .menu-item {
+      a {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+        color: #6b6355;
+        font-size: 0.82rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: var(--accent-color);
+        }
+
+        &.active {
+          color: var(--accent-color);
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--light-color);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    text-align: left;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    z-index: 10;
+
+    &.open {
+      max-height: 500px;
+      opacity: 1;
+    }
+
+    .menu-list {
+      flex-direction: column;
+      padding: 0.5rem 1.5rem;
+
+      .menu-item {
+        a {
+          display: block;
+          padding: 0.85rem 0;
+          font-size: 0.95rem;
+          border-bottom: 1px solid rgba(197, 169, 146, 0.15);
+          letter-spacing: 0.1em;
+
+          &:last-child {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+  }
 }
 
-.header-logo-col {
-  width: 30%;
-}
-
-.header-nav-col {
-  width: 70%;
-}
-
-@media screen and (max-width: 768px) {
-  .header-logo-col,
-  .header-nav-col {
-    width: 100%;
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: flex;
   }
 }

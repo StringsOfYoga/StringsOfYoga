@@ -17,38 +17,33 @@
 
   <header id="header">
     <div class="container-fluid">
-      <div class="row align-items-center">
-        <div class="col-md-2 header-logo-col">
-          <div class="main-logo">
-            <a routerLink="/"><img src="/assets/images/soy-logo-bw.png" width="100" alt="Strings of Yoga logo" /></a>
-          </div>
+      <div class="header-bar">
+        <div class="header-logo">
+          <a routerLink="/"><img src="/assets/images/soy-logo-bw.png" width="100" alt="Strings of Yoga logo" /></a>
         </div>
 
-        <div class="col-md-10 header-nav-col">
-          <nav id="navbar" aria-label="Main navigation">
-            <div class="main-menu stellarnav">
-              <ul class="menu-list">
-                @for (item of navItems; track item.path) {
-                  <li class="menu-item">
-                    <a
-                      [routerLink]="item.path"
-                      routerLinkActive="active"
-                      [routerLinkActiveOptions]="{ exact: item.exact }"
-                    >
-                      {{ item.label }}
-                    </a>
-                  </li>
-                }
-              </ul>
+        <button type="button" class="mobile-menu-toggle" [class.open]="mobileMenuOpen" (click)="toggleMobileMenu()" aria-label="Toggle navigation menu" [attr.aria-expanded]="mobileMenuOpen">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
 
-              <div class="hamburger" aria-hidden="true">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-              </div>
-            </div>
-          </nav>
-        </div>
+        <nav id="navbar" [class.open]="mobileMenuOpen" aria-label="Main navigation">
+          <ul class="menu-list">
+            @for (item of navItems; track item.path) {
+              <li class="menu-item">
+                <a
+                  [routerLink]="item.path"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: item.exact }"
+                  (click)="closeMobileMenu()"
+                >
+                  {{ item.label }}
+                </a>
+              </li>
+            }
+          </ul>
+        </nav>
       </div>
     </div>
   </header>

@@ -81,6 +81,93 @@ My teaching blends traditional yogic wisdom with modern nervous-system awareness
     </div>
 
 </section>
+
+<section id="meet-the-founder" class="founder-video-section">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <div class="founder-video-wrapper">
+                    <video
+                        #founderVideo
+                        class="founder-video"
+                        autoplay
+                        muted
+                        loop
+                        playsinline
+                        preload="auto"
+                        poster="download1.jpg"
+                    >
+                        <source src="/assets/video/founder-intro.mp4" type="video/mp4">
+                        Your browser does not support the video element.
+                    </video>
+                  <button
+  type="button"
+  class="mute-toggle"
+  (click)="toggleMute()"
+  [attr.aria-label]="isMuted ? 'Unmute video' : 'Mute video'"
+>
+  <span class="mute-icon">
+
+    <!-- Muted Icon -->
+    <svg
+      *ngIf="isMuted; else unmutedIcon"
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+      <line x1="23" y1="9" x2="17" y2="15"></line>
+      <line x1="17" y1="9" x2="23" y2="15"></line>
+    </svg>
+
+    <!-- Unmuted Icon -->
+    <ng-template #unmutedIcon>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+      </svg>
+    </ng-template>
+
+  </span>
+</button>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="founder-content">
+                    <span class="founder-eyebrow">Meet the Founder</span>
+                    <h2 class="founder-title">The Story Behind Strings of Yoga</h2>
+                    <p class="founder-text">
+                        Strings of Yoga was born from a simple belief: that true healing begins when we learn to listen—to our breath, our bodies, and the quiet spaces between thoughts.
+                    </p>
+                    <p class="founder-text">
+                        With years of practice in Yog Nidra, breathwork, and restorative yoga, I created this space to offer gentle, accessible practices for anyone seeking calm in a noisy world. No perfection required—just presence.
+                    </p>
+                    <div class="btn-wrap">
+                        <a routerLink="/about" class="btn btn-outline-accent btn-pill">Learn More About Me<i class="icon icon-ns-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="section bg-light py-5" data-gallery="yoga">
     <div class="container">
         <div class="row mb-2">
