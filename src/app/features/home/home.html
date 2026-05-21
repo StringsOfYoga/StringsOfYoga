@@ -10,7 +10,63 @@
         </div>
       </div>
       <div class="hero-image">
-        <img src="download1.jpg" alt="Yoga practice" />
+        <div class="hero-video-wrapper">
+          <video
+            #founderVideo
+            class="hero-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+            poster="download1.jpg"
+          >
+            <source src="/assets/video/founder-intro.mp4" type="video/mp4">
+            Your browser does not support the video element.
+          </video>
+          <button
+            type="button"
+            class="mute-toggle"
+            (click)="toggleMute()"
+            [attr.aria-label]="isMuted ? 'Unmute video' : 'Mute video'"
+          >
+            <span class="mute-icon">
+              <svg
+                *ngIf="isMuted; else unmutedIcon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#ffffff"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <line x1="23" y1="9" x2="17" y2="15"></line>
+                <line x1="17" y1="9" x2="23" y2="15"></line>
+              </svg>
+              <ng-template #unmutedIcon>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#ffffff"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                </svg>
+              </ng-template>
+            </span>
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -29,8 +85,120 @@
     </div>
   </div>
 </section>
+<section class="section bg-light py-5" data-gallery="yoga">
+    <div class="container">
+        <div class="row mb-2">
+            <div class="col-12 text-center">
+                <h2 class="section-title">Yoga Media Gallery</h2>
+                <p class="text-muted">Explore guided practices, videos, and images</p>
+            </div>
+        </div>
 
-<section class="library-section">
+        <ul class="nav nav-pills mb-4 justify-content-center" id="mediaTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="audio-tab" data-bs-toggle="pill" data-bs-target="#audio-content" type="button">
+                    &#127911; Audio
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="video-tab" data-bs-toggle="pill" data-bs-target="#video-content" type="button">
+                    &#9654; Video
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="images-tab" data-bs-toggle="pill" data-bs-target="#images-content" type="button">
+                    &#128247; Images
+                </button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="mediaTabContent">
+            <!-- Audio Tab -->
+            <div class="tab-pane fade show active" id="audio-content" role="tabpanel">
+                <div class="row g-4">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="media-card audio-card h-100">
+                            <div class="media-thumb" style="background-image: url('download4.jpg');">
+                                <div class="audio-wave">
+                                    <span></span><span></span><span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="media-info">
+                                <span class="media-type">Audio</span>
+                                <h3>Guided Yoga Nidra</h3>
+                                <audio controls class="w-100">
+                                    <source src="/assets/audio/yoga-nidra.mp3" type="audio/mpeg">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Tab -->
+            <div class="tab-pane fade" id="video-content" role="tabpanel">
+                <div class="row g-4">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="media-card video-card h-100">
+                            <div class="media-thumb" style="background-image: url('download2.jpg');">
+                                <a href="https://www.youtube.com/watch?v=VFJwKU-o5dE" class="play-btn glightbox" data-type="video">
+                                    <span>▶</span>
+                                </a>
+                            </div>
+                            <div class="media-info">
+                                <span class="media-type">Video</span>
+                                <h3>Guided Yoga Nidra for Sleep</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="media-card video-card h-100">
+                            <div class="media-thumb" style="background-image: url('download3.jpg');">
+                                <a href="https://www.youtube.com/watch?v=inpok4MKVLM" class="play-btn glightbox" data-type="video">
+                                    <span>▶</span>
+                                </a>
+                            </div>
+                            <div class="media-info">
+                                <span class="media-type">Featured</span>
+                                <h3>30-Minute Yoga Nidra</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="media-card video-card h-100">
+                            <div class="media-thumb" style="background-image: url('download5.jpg');">
+                                <a href="videos/yoga-nidra.mp4" class="play-btn glightbox" data-type="video">
+                                    <span>▶</span>
+                                </a>
+                            </div>
+                            <div class="media-info">
+                                <span class="media-type">Video</span>
+                                <h3>Rest & Reset</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Images Tab -->
+            <div class="tab-pane fade" id="images-content" role="tabpanel">
+                <div class="row g-4">
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <div class="media-card image-card h-100">
+                            <a href="download1.jpg" class="media-thumb glightbox" data-gallery="yoga" style="background-image: url('download1.jpg');"></a>
+                            <div class="media-info">
+                                <span class="media-type">Image</span>
+                                <h3>Yoga Nidra - Deep Rest</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- <section class="library-section">
   <div class="container">
     <div class="section-header-row">
       <div>
@@ -74,7 +242,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 <section class="featured-section">
   <div class="container">
