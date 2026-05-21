@@ -1,79 +1,46 @@
 <footer id="footer">
   <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <div class="footer-item">
-          <div class="company-brand">
-            <img src="/assets/images/soy-logo-bw.png" alt="Strings of Yoga" width="150" class="footer-logo" />
-            <p>
-              @if (brand) {
-                {{ brand.mission }}
-              } @else {
-                Calm, comforting spaces where we feel to heal—one string at a time.
-              }
-            </p>
-          </div>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-text"><img src="/assets/images/soy-logo-bw.png" width="100" alt="Strings of Yoga logo" /></div>
+        <p>
+          @if (brand) {
+            {{ brand.mission }}
+          } @else {
+            Cultivating presence through the intersection of ancient practice and modern life.
+          }
+        </p>
+        <div class="footer-copyright">
+          © {{ year }} Strings of Yoga. Crafted for Serene Grace.
         </div>
       </div>
 
-      <div class="col-md-2">
-        <div class="footer-menu">
-          <h5>Explore</h5>
-          <ul class="menu-list">
-            <li><a routerLink="/about">About</a></li>
-            <li><a routerLink="/courses">Courses</a></li>
-            <li><a routerLink="/workshops">Workshops</a></li>
-            <li><a routerLink="/resources">Resources</a></li>
-          </ul>
-        </div>
+      <div class="footer-col">
+        <h5>Explore</h5>
+        <ul class="menu-list">
+          <li><a routerLink="/about">Wellness Blog</a></li>
+          <li><a routerLink="/courses">Studio Locations</a></li>
+          <li><a routerLink="/resources">Practices</a></li>
+        </ul>
       </div>
 
-      <div class="col-md-2">
-        <div class="footer-menu">
-          <h5>Connect</h5>
-          <ul class="menu-list">
-            <li><a routerLink="/testimonials">Testimonials</a></li>
-            <li><a routerLink="/blog">Blog</a></li>
-            <li><a routerLink="/contact">Contact</a></li>
-          </ul>
-        </div>
+      <div class="footer-col">
+        <h5>Support</h5>
+        <ul class="menu-list">
+          <li><a routerLink="/contact">Privacy Policy</a></li>
+          <li><a routerLink="/contact">Terms of Service</a></li>
+          <li><a routerLink="/contact">Contact Us</a></li>
+        </ul>
       </div>
 
-      <div class="col-md-2">
-        <div class="footer-menu">
-          <h5>Practice</h5>
-          <ul class="menu-list">
-            <li><a routerLink="/resources">Audio</a></li>
-            <li><a routerLink="/resources">Videos</a></li>
-            <li><a routerLink="/courses">Book a session</a></li>
-          </ul>
+      <div class="footer-col">
+        <h5>Connect</h5>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><i class="icon icon-facebook"></i></a>
+          <a href="#" aria-label="Twitter"><i class="icon icon-twitter"></i></a>
+          <a href="#" aria-label="YouTube"><i class="icon icon-youtube-play"></i></a>
         </div>
       </div>
     </div>
   </div>
 </footer>
-
-<div id="footer-bottom">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="copyright">
-          <div class="row">
-            <div class="col-md-6">
-              <p>© {{ year }} Strings of Yoga. All rights reserved.</p>
-            </div>
-            <div class="col-md-6">
-              <div class="social-links align-right">
-                <ul>
-                  <li><a href="#" aria-label="Facebook"><i class="icon icon-facebook"></i></a></li>
-                  <li><a href="#" aria-label="Twitter"><i class="icon icon-twitter"></i></a></li>
-                  <li><a href="#" aria-label="YouTube"><i class="icon icon-youtube-play"></i></a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>

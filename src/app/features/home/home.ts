@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, NgZone, OnInit, inject } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, NgZone, OnInit, ViewChild, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import * as AOS from 'aos';
 import GLightbox from 'glightbox';
@@ -21,8 +21,11 @@ export class Home implements OnInit, AfterViewInit {
   private readonly seo = inject(SeoService);
   private lightbox: ReturnType<typeof GLightbox> | null = null;
 
+  @ViewChild('founderVideo') founderVideoRef!: ElementRef<HTMLVideoElement>;
+
   activeTab = 'all-genre';
   tabs = ['all-genre', 'business', 'technology', 'romantic', 'adventure', 'fictional'];
+  isMuted = true;
 
   ngOnInit(): void {
     this.seo.setPage({
@@ -34,6 +37,14 @@ export class Home implements OnInit, AfterViewInit {
 
   setTab(tab: string): void {
     this.activeTab = tab;
+  }
+
+  toggleMute(): void {
+    const video = this.founderVideoRef?.nativeElement;
+    if (video) {
+      video.muted = !video.muted;
+      this.isMuted = video.muted;
+    }
   }
 
   ngAfterViewInit(): void {
@@ -64,8 +75,20 @@ export class Home implements OnInit, AfterViewInit {
       setTimeout(() => {
         this.initLightbox();
         this.initLazyLoad();
-      }, 0);
+        this.playFounderVideo();
+      }, 300);
     });
+  }
+
+  private playFounderVideo(): void {
+    const video = this.founderVideoRef?.nativeElement;
+    if (video) {
+      video.muted = true;
+      video.play().catch(() => {
+        video.muted = true;
+        video.play();
+      });
+    }
   }
 
   private initLightbox(): void {
