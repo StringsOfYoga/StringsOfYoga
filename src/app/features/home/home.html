@@ -1,910 +1,212 @@
-﻿<section id="download-app" class="leaf-pattern-overlay">
-    <div class="corner-pattern-overlay"></div>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12">
-                <div class="row justify-content-center align-items-center">
-
-                    <div class="col-md-4">
-                        <figure>
-                            <img src="/assets/images/footer-bg.png" alt="phone"
-                                class="single-image">
-                        </figure>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="app-info">
-                            <h2 class="section-title divider">About Me</h2>
-                            <p>I'm a yoga instructor devoted to sharing practices that invite deep rest, self-inquiry, and sustainable transformation.
-Strings of Yoga is rooted in the understanding that we are all connected—through breath, awareness, and subtle inner threads that guide us home to ourselves.
-
-My teaching blends traditional yogic wisdom with modern nervous-system awareness, creating practices that are accessible, inclusive, and deeply nourishing. Whether you are new to yoga or a seasoned practitioner, you are welcome here exactly as you are.</p>
-                            <!-- <div class="google-app">
-                                <img src="/assets/images/google-play.jpg" alt="google play">
-                                <img src="/assets/images/app-store.jpg" alt="app store">
-                            </div> -->
-                            <div class="btn-wrap">
-                                <a routerLink="/resources" class="btn btn-outline-accent btn-accent-arrow">Listen to
-                                    a Yoga Nidra<i class="icon icon-ns-arrow-right"></i></a>
-                                <a routerLink="/workshops" class="btn btn-outline-accent btn-accent-arrow">Explore Workshops<i
-                                        class="icon icon-ns-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+﻿<section id="hero" class="hero-section">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <h1 class="hero-title">Find Your Serene Grace</h1>
+        <p class="hero-subtitle">A digital sanctuary dedicated to the art of deep rest and conscious self-inquiry. Journey through curated practices designed to restore your nervous system and awaken inner awareness.</p>
+        <div class="hero-actions">
+          <a routerLink="/resources" class="btn btn-primary-pill">Begin Practice</a>
+          <a routerLink="/about" class="btn btn-outline-pill">Our Story</a>
         </div>
+      </div>
+      <div class="hero-image">
+        <img src="download1.jpg" alt="Yoga practice" />
+      </div>
     </div>
-</section>
-<section id="billboard">
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-
-                <button class="prev slick-arrow">
-                    <i class="icon icon-arrow-left"></i>
-                </button>
-                <button class="next slick-arrow">
-                    <i class="icon icon-arrow-right"></i>
-                </button>
-                <div class="main-slider pattern-overlay">
-                    <div class="slider-item">
-                        <div class="banner-content">
-                            <h2 class="banner-title">Find your flow, one string at a time</h2>
-                            <p>Gentle Yog Nidra, breathwork, and restorative practices to calm your nervous system and reconnect with yourself.</p>
-                            <div class="btn-wrap">
-                                <a routerLink="/courses" class="btn btn-outline-accent btn-accent-arrow">Explore Sessions<i class="icon icon-ns-arrow-right"></i></a>
-                            </div>
-                        </div>
-                        <img src="download1.jpg" alt="Yoga practice" class="banner-image">
-                    </div>
-
-                    <div class="slider-item">
-                        <div class="banner-content">
-                            <h2 class="banner-title">A peaceful space to feel and heal</h2>
-                            <p>Workshops for anxiety, mental wellness, and deep rest?held with warmth, not clinical distance.</p>
-                            <div class="btn-wrap">
-                                <a routerLink="/resources" class="btn btn-outline-accent btn-accent-arrow">Listen to Relaxation Audio<i class="icon icon-ns-arrow-right"></i></a>
-                            </div>
-                        </div>
-                        <img src="download2.jpg" alt="Restorative yoga" class="banner-image">
-                    </div>
-
-                </div>
-
-
-
-            </div>
-        </div>
-    </div>
-
+  </div>
 </section>
 
-<section id="meet-the-founder" class="founder-video-section">
-    <div class="container">
-        <div class="row align-items-center g-5">
-            <div class="col-lg-6">
-                <div class="founder-video-wrapper">
-                    <video
-                        #founderVideo
-                        class="founder-video"
-                        autoplay
-                        muted
-                        loop
-                        playsinline
-                        preload="auto"
-                        poster="download1.jpg"
-                    >
-                        <source src="/assets/video/founder-intro.mp4" type="video/mp4">
-                        Your browser does not support the video element.
-                    </video>
-                  <button
-  type="button"
-  class="mute-toggle"
-  (click)="toggleMute()"
-  [attr.aria-label]="isMuted ? 'Unmute video' : 'Mute video'"
->
-  <span class="mute-icon">
-
-    <!-- Muted Icon -->
-    <svg
-      *ngIf="isMuted; else unmutedIcon"
-      xmlns="http://www.w3.org/2000/svg"
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-      <line x1="23" y1="9" x2="17" y2="15"></line>
-      <line x1="17" y1="9" x2="23" y2="15"></line>
-    </svg>
-
-    <!-- Unmuted Icon -->
-    <ng-template #unmutedIcon>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
-        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-      </svg>
-    </ng-template>
-
-  </span>
-</button>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="founder-content">
-                    <span class="founder-eyebrow">Meet the Founder</span>
-                    <h2 class="founder-title">The Story Behind Strings of Yoga</h2>
-                    <p class="founder-text">
-                        Strings of Yoga was born from a simple belief: that true healing begins when we learn to listen—to our breath, our bodies, and the quiet spaces between thoughts.
-                    </p>
-                    <p class="founder-text">
-                        With years of practice in Yog Nidra, breathwork, and restorative yoga, I created this space to offer gentle, accessible practices for anyone seeking calm in a noisy world. No perfection required—just presence.
-                    </p>
-                    <div class="btn-wrap">
-                        <a routerLink="/about" class="btn btn-outline-accent btn-pill">Learn More About Me<i class="icon icon-ns-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
+<section class="philosophy-section">
+  <div class="container">
+    <div class="philosophy-inner">
+      <span class="section-label">Our Philosophy</span>
+      <blockquote class="philosophy-quote">
+        "Yoga is not about touching your toes, it is what you learn on the way down."
+      </blockquote>
+      <p class="philosophy-text">
+        We believe in the bridge between ancient traditional wisdom and contemporary neurology of understanding. Each breath is an invitation to inhabit the space between effort and ease, bringing ritual with refined modern awareness.
+      </p>
     </div>
+  </div>
 </section>
 
-<section class="section bg-light py-5" data-gallery="yoga">
-    <div class="container">
-        <div class="row mb-2">
-            <div class="col-12 text-center">
-                <h2 class="section-title">Yoga Media Gallery</h2>
-                <p class="text-muted">Explore guided practices, videos, and images</p>
-            </div>
-        </div>
-
-        <ul class="nav nav-pills mb-4 justify-content-center" id="mediaTab" role="tablist">
-            <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="audio-tab" data-bs-toggle="pill" data-bs-target="#audio-content" type="button">
-                    &#127911; Audio
-                </button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="video-tab" data-bs-toggle="pill" data-bs-target="#video-content" type="button">
-                    &#9654; Video
-                </button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="images-tab" data-bs-toggle="pill" data-bs-target="#images-content" type="button">
-                    &#128247; Images
-                </button>
-            </li>
-        </ul>
-
-        <div class="tab-content" id="mediaTabContent">
-            <!-- Audio Tab -->
-            <div class="tab-pane fade show active" id="audio-content" role="tabpanel">
-                <div class="row g-4">
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="media-card audio-card h-100">
-                            <div class="media-thumb" style="background-image: url('download4.jpg');">
-                                <div class="audio-wave">
-                                    <span></span><span></span><span></span><span></span><span></span>
-                                </div>
-                            </div>
-                            <div class="media-info">
-                                <span class="media-type">Audio</span>
-                                <h3>Guided Yoga Nidra</h3>
-                                <audio controls class="w-100">
-                                    <source src="/assets/audio/yoga-nidra.mp3" type="audio/mpeg">
-                                    Your browser does not support the audio element.
-                                </audio>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Video Tab -->
-            <div class="tab-pane fade" id="video-content" role="tabpanel">
-                <div class="row g-4">
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="media-card video-card h-100">
-                            <div class="media-thumb" style="background-image: url('download2.jpg');">
-                                <a href="https://www.youtube.com/watch?v=VFJwKU-o5dE" class="play-btn glightbox" data-type="video">
-                                    <span>▶</span>
-                                </a>
-                            </div>
-                            <div class="media-info">
-                                <span class="media-type">Video</span>
-                                <h3>Guided Yoga Nidra for Sleep</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="media-card video-card h-100">
-                            <div class="media-thumb" style="background-image: url('download3.jpg');">
-                                <a href="https://www.youtube.com/watch?v=inpok4MKVLM" class="play-btn glightbox" data-type="video">
-                                    <span>▶</span>
-                                </a>
-                            </div>
-                            <div class="media-info">
-                                <span class="media-type">Featured</span>
-                                <h3>30-Minute Yoga Nidra</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="media-card video-card h-100">
-                            <div class="media-thumb" style="background-image: url('download5.jpg');">
-                                <a href="videos/yoga-nidra.mp4" class="play-btn glightbox" data-type="video">
-                                    <span>▶</span>
-                                </a>
-                            </div>
-                            <div class="media-info">
-                                <span class="media-type">Video</span>
-                                <h3>Rest & Reset</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Images Tab -->
-            <div class="tab-pane fade" id="images-content" role="tabpanel">
-                <div class="row g-4">
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <div class="media-card image-card h-100">
-                            <a href="download1.jpg" class="media-thumb glightbox" data-gallery="yoga" style="background-image: url('download1.jpg');"></a>
-                            <div class="media-info">
-                                <span class="media-type">Image</span>
-                                <h3>Yoga Nidra - Deep Rest</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<section class="library-section">
+  <div class="container">
+    <div class="section-header-row">
+      <div>
+        <span class="section-label">Library</span>
+        <h2 class="section-heading">Mindful Media</h2>
+      </div>
+      <a routerLink="/resources" class="view-all-link">View All Archives <i class="icon icon-ns-arrow-right"></i></a>
     </div>
-</section>
-<!-- 
-<section id="client-holder" class="text-center" data-aos="fade-up">
-    <div class="container">
-        <div class="row">
-            <div class="inner-content">
-                <div class="logo-wrap">
-                    <div class="grid">
-                        <a href="#"><img src="/assets/images/client-image1.png" alt="client"></a>
-                        <a href="#"><img src="/assets/images/client-image2.png" alt="client"></a>
-                        <a href="#"><img src="/assets/images/client-image3.png" alt="client"></a>
-                        <a href="#"><img src="/assets/images/client-image4.png" alt="client"></a>
-                        <a href="#"><img src="/assets/images/client-image5.png" alt="client"></a>
-                    </div>
-                </div>
-            </div>
+    <div class="media-grid">
+      <div class="media-card-modern">
+        <div class="media-card-image" style="background-image: url('download4.jpg');">
+          <span class="media-badge audio">Audio</span>
         </div>
+        <div class="media-card-body">
+          <h3>Guided Yoga Nidra</h3>
+          <p class="media-card-meta">25 min · Deep Rest</p>
+          <button class="btn-listen">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            Listen
+          </button>
+        </div>
+      </div>
+      <div class="media-card-modern">
+        <div class="media-card-image" style="background-image: url('download2.jpg');">
+          <span class="media-badge video">Video</span>
+        </div>
+        <div class="media-card-body">
+          <h3>Sleep Flow Ritual</h3>
+          <p class="media-card-meta">30 min · Evening Sequence</p>
+          <a routerLink="/resources" class="btn-explore">
+            Explore Sequence <i class="icon icon-ns-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+      <div class="media-card-modern media-card-modern--dashed">
+        <div class="media-card-body media-card-body--centered">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect></svg>
+          <p class="media-card-meta">More Content</p>
+          <p class="media-card-desc">New rituals and guided sessions added weekly</p>
+        </div>
+      </div>
     </div>
-</section> -->
-
-<section id="featured-books" class="py-5 my-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-
-                <div class="section-header align-center">
-                    <div class="title">
-                        <span>Some quality items</span>
-                    </div>
-                    <h2 class="section-title">Featured Yoga Nidra Practices</h2>
-                </div>
-
-                <div class="product-list" data-aos="fade-up">
-                    <div class="row">
-
-                        <div class="col-md-3">
-                            <div class="product-item">
-                                <figure class="product-style">
-                                    <div class="music-case">
-                                        <div class="front-case">
-                                            <img src="download1.jpg" alt="">
-                                            <!-- <div class="icon"></div> -->
-                                        </div>
-                                        <div class="disc">
-                                            <div class="hole"></div>
-                                        </div>
-                                        <div class="back-case"></div>
-                                    </div>
-                                    <!-- <img src="/assets/images/product-item1.jpg" alt="Books" class="product-item">-->
-                                    <button type="button" class="add-to-cart" data-product-tile="add-to-cart">Listen Now</button> 
-                                </figure>
-                                <figcaption>
-                                    <h3>Deep Rest Yoga Nidra ▶ 30 min</h3>
-                                    <span>30-min</span>
-                                    <!-- <div class="item-price">$ 40.00</div> -->
-                                </figcaption>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3">
-                            <div class="product-item">
-                                <figure class="product-style">
-                                    <div class="music-case">
-                                        <div class="front-case">
-                                            <img src="download2.jpg" alt="">
-                                            <!-- <div class="icon"></div> -->
-                                        </div>
-                                        <div class="disc">
-                                            <div class="hole"></div>
-                                        </div>
-                                        <div class="back-case"></div>
-                                    </div>
-                                    <!-- <img src="/assets/images/product-item2.jpg" alt="Books" class="product-item">-->
-                                    <button type="button" class="add-to-cart" data-product-tile="add-to-cart">Watch
-                                        Now</button> 
-                                </figure>
-                                <figcaption>
-                                    <h3>Yoga Nidra for Anxiety</h3>
-                                    <span>Sanchit Howdy</span>
-                                    <!-- <div class="item-price">$ 38.00</div> -->
-                                </figcaption>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3">
-                            <div class="product-item">
-                                <figure class="product-style">
-                                    <div class="music-case">
-                                        <div class="front-case">
-                                            <img src="download3.jpg" alt="">
-                                            <!-- <div class="icon"></div> -->
-                                        </div>
-                                        <div class="disc">
-                                            <div class="hole"></div>
-                                        </div>
-                                        <div class="back-case"></div>
-                                    </div>
-                                    <!-- <img src="/assets/images/product-item3.jpg" alt="Books" class="product-item"> -->
-                                    <button type="button" class="add-to-cart" data-product-tile="add-to-cart">View Item</button>
-                                </figure>
-                                <figcaption>
-                                    <h3>Creative Insight Nidra</h3>
-                                    <span>Arthur Doyle</span>
-                                    <!-- <div class="item-price">$ 45.00</div> -->
-                                </figcaption>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3">
-                            <div class="product-item">
-                                <figure class="product-style">
-                                      <div class="music-case">
-                                        <div class="front-case">
-                                            <img src="download4.jpg" alt="">
-                                            <!-- <div class="icon"></div> -->
-                                        </div>
-                                        <div class="disc">
-                                            <div class="hole"></div>
-                                        </div>
-                                        <div class="back-case"></div>
-                                    </div>
-                                    <!-- <img src="/assets/images/product-item4.jpg" alt="Books" class="product-item"> -->
-                                    <button type="button" class="add-to-cart" data-product-tile="add-to-cart">View Item</button>
-                                </figure>
-                                <figcaption>
-                                    <h3>Sleep & Restoration</h3>
-                                    <span>Klien Marry</span>
-                                    <!-- <div class="item-price">$ 35.00</div> -->
-                                </figcaption>
-                            </div>
-                        </div>
-
-                    </div><!--ft-books-slider-->
-                </div><!--grid-->
-
-
-            </div><!--inner-content-->
-        </div>
-
-        <div class="row">
-            <div class="col-md-12">
-
-                <div class="btn-wrap align-right">
-                    <a routerLink="/resources" class="btn-accent-arrow">View all products <i class="icon icon-ns-arrow-right"></i></a>
-                </div>
-
-            </div>
-        </div>
-    </div>
+  </div>
 </section>
 
-<section id="best-selling" class="leaf-pattern-overlay">
-    <div class="corner-pattern-overlay"></div>
-    <div class="container">
-        <div class="row justify-content-center">
-
-            <div class="col-md-8">
-
-                <div class="row">
-
-                    <div class="col-md-6">
-                        <figure class="products-thumb">
-                            <img src="download5.jpg" alt="book" class="single-image">
-                        </figure>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="product-entry">
-                            <h2 class="section-title divider">Best Selling Book</h2>
-
-                            <div class="products-content">
-                                <div class="author-name">Yog Nidra ? Deep Rest</div>
-                                <h3 class="item-title">Calm the nervous system</h3>
-                                <p>A held, 45-minute practice for stress, sleep, and emotional release.</p>
-                                <div class="btn-wrap">
-                                    <a routerLink="/contact" class="btn-accent-arrow">Book a session <i class="icon icon-ns-arrow-right"></i></a>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-                <!-- / row -->
-
-            </div>
-
-        </div>
+<section class="featured-section">
+  <div class="container">
+    <div class="featured-grid">
+      <div class="featured-image">
+        <img src="download5.jpg" alt="Featured practice" />
+      </div>
+      <div class="featured-content">
+        <span class="section-label">New Release</span>
+        <h2 class="featured-title">Birds Gonna Be Happy</h2>
+        <p class="featured-author">By Strings of Yoga</p>
+        <p class="featured-desc">
+          An introspective guide to reclaiming joy through the practice of mindful stillness and the observation of the natural world. A must-read for the modern seeker.
+        </p>
+        <div class="featured-price">$45.00</div>
+        <a routerLink="/contact" class="btn btn-primary-pill">Short Now</a>
+      </div>
     </div>
+  </div>
 </section>
 
-<section id="popular-books" class="bookshelf py-5 my-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-
-                <!-- Section Header -->
-                <div class="section-header align-center">
-                    <div class="title">
-                        <span>Some quality items</span>
-                    </div>
-                    <h2 class="section-title">Popular Books</h2>
-                </div>
-
-                <!-- Tabs -->
-                <ul class="tabs">
-                    <li *ngFor="let tab of tabs" class="tab" [class.active]="activeTab === tab" (click)="setTab(tab)">
-                        {{ tab | titlecase }}
-                    </li>
-                </ul>
-
-                <!-- Tab Content -->
-                <div class="tab-content">
-
-                    <!-- ALL GENRE -->
-                    <div class="tab-panel" [class.active]="activeTab === 'all-genre'">
-                        <div class="row">
-                            <div class="col-md-3" *ngFor="let i of [1,2,3,4,5,6]">
-                                <div class="product-item">
-                                    <figure class="product-style">
-                                        <img [src]="'download' + i + '.jpg'" alt="Books"
-                                            class="product-item">
-                                        <!-- <button type="button" class="add-to-cart">
-                                            View Item
-                                        </button> -->
-                                        <figcaption>
-                                            <h3>Guided practice {{ i }}</h3>
-                                            <span>Yog Nidra ? Rest</span>
-                                            <!-- <div class="item-price">$ 40.00</div> -->
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- BUSINESS -->
-                    <div class="tab-panel" [class.active]="activeTab === 'business'">
-                        <div class="row">
-                            <div class="col-md-3" *ngFor="let i of [2,4,6]">
-                                <div class="product-item">
-                                    <figure class="product-style">
-                                        <img [src]="'download' + i + '.jpg'" alt="Books"
-                                            class="product-item">
-                                        <!-- <button type="button" class="add-to-cart">
-                                            View Item
-                                        </button> -->
-                                        <figcaption>
-                                            <h3>Business Book</h3>
-                                            <span>Author</span>
-                                            <!-- <div class="item-price">$ 40.00</div> -->
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- TECHNOLOGY -->
-                    <div class="tab-panel" [class.active]="activeTab === 'technology'">
-                        <div class="row">
-                            <div class="col-md-3" *ngFor="let i of [1,3,5]">
-                                <div class="product-item">
-                                    <figure class="product-style">
-                                        <img [src]="'download' + i + '.jpg'" alt="Books"
-                                            class="product-item">
-                                        <!-- <button type="button" class="add-to-cart">
-                                            View Item
-                                        </button> -->
-                                        <figcaption>
-                                            <h3>Tech Book</h3>
-                                            <span>Author</span>
-                                            <!-- <div class="item-price">$ 40.00</div> -->
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- ROMANTIC -->
-                    <div class="tab-panel" [class.active]="activeTab === 'romantic'">
-                        <div class="row">
-                            <div class="col-md-3" *ngFor="let i of [1,3,5]">
-                                <div class="product-item">
-                                    <figure class="product-style">
-                                        <img [src]="'download' + i + '.jpg'" alt="Books"
-                                            class="product-item">
-                                        <!-- <button type="button" class="add-to-cart">
-                                            View Item
-                                        </button> -->
-                                        <figcaption>
-                                            <h3>Romantic Book</h3>
-                                            <span>Author</span>
-                                            <!-- <div class="item-price">$ 40.00</div> -->
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- ADVENTURE -->
-                    <div class="tab-panel" [class.active]="activeTab === 'adventure'">
-                        <div class="row">
-                            <div class="col-md-3" *ngFor="let i of [5]">
-                                <div class="product-item">
-                                    <figure class="product-style">
-                                        <img [src]="'download' + i + '.jpg'" alt="Books"
-                                            class="product-item">
-                                        <!-- <button type="button" class="add-to-cart">
-                                            View Item
-                                        </button> -->
-                                        <figcaption>
-                                            <h3>Adventure Book</h3>
-                                            <span>Author</span>
-                                            <!-- <div class="item-price">$ 40.00</div> -->
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FICTIONAL -->
-                    <div class="tab-panel" [class.active]="activeTab === 'fictional'">
-                        <div class="row">
-                            <div class="col-md-3" *ngFor="let i of [5]">
-                                <div class="product-item">
-                                    <figure class="product-style">
-                                        <img [src]="'download' + i + '.jpg'" alt="Books"
-                                            class="product-item">
-                                        <!-- <button type="button" class="add-to-cart">
-                                            View Item
-                                        </button> -->
-                                        <figcaption>
-                                            <h3>Fiction Book</h3>
-                                            <span>Author</span>
-                                            <!-- <div class="item-price">$ 40.00</div> -->
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
+<section class="upcoming-section">
+  <div class="container">
+    <div class="section-header-center">
+      <span class="section-label">Upcoming</span>
+      <h2 class="section-heading">Upcoming Gatherings</h2>
     </div>
+    <div class="events-list">
+      <div class="event-item">
+        <div class="event-date">
+          <span class="event-month">MAR</span>
+          <span class="event-day">12-18</span>
+        </div>
+        <div class="event-details">
+          <h3>Equinox Retreat</h3>
+          <p>Sedona, Arizona · 7 Days of Renewal</p>
+        </div>
+        <a routerLink="/workshops" class="btn btn-event">Reserve Spot</a>
+      </div>
+      <div class="event-item">
+        <div class="event-date">
+          <span class="event-month">JUN</span>
+          <span class="event-day">05</span>
+        </div>
+        <div class="event-details">
+          <h3>Yoga Nidra Intensive</h3>
+          <p>Online Masterclass · 4 Hours Deep Inquiry</p>
+        </div>
+        <a routerLink="/workshops" class="btn btn-event">Reserve Spot</a>
+      </div>
+    </div>
+  </div>
 </section>
 
-
-<section id="quotation" class="align-center pb-5 mb-5">
-    <div class="inner-content">
-        <h2 class="section-title divider">Quote of the day</h2>
-        <blockquote data-aos="fade-up">
-            <q>"In the space between breaths, we remember who we are."</q>
-            <div class="author-name">Strings of Yoga</div>
-        </blockquote>
+<section class="testimonial-section">
+  <div class="container">
+    <div class="testimonial-inner">
+      <div class="testimonial-avatar">
+        <img src="download3.jpg" alt="Student" />
+      </div>
+      <blockquote class="testimonial-quote">
+        "Finding Strings of Yoga was like finding a piece of myself I hadn't yet met. The depth of instruction and the architectural beauty of the space—both digital and physical—is unparalleled."
+      </blockquote>
+      <div class="testimonial-author">
+        <span class="testimonial-name">Elena Kostis</span>
+        <span class="testimonial-role">Advanced Student</span>
+      </div>
     </div>
+  </div>
 </section>
 
-<section id="special-offer" class="bookshelf pb-5 mb-5">
-
-    <div class="section-header align-center">
-        <div class="title">
-            <span>Grab your opportunity</span>
-        </div>
-        <h2 class="section-title">Books with offer</h2>
+<section class="newsletter-section">
+  <div class="container">
+    <div class="newsletter-card">
+      <div class="newsletter-content">
+        <h2 class="newsletter-title">Stay in Balance</h2>
+        <p class="newsletter-desc">Join our circle for monthly rituals, book excerpts, and early access to retreats.</p>
+        <form class="newsletter-form" (submit)="false">
+          <input type="email" placeholder="Your email address" class="newsletter-input" />
+          <button type="submit" class="btn btn-primary-pill">Subscribe</button>
+        </form>
+      </div>
     </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="inner-content">
-                <div class="product-list" data-aos="fade-up">
-                    <div class="grid product-grid">
-                        <div class="product-item">
-                            <figure class="product-style">
-                                <img src="/assets/images/product-item5.jpg" alt="Books" class="product-item">
-                                <button type="button" class="add-to-cart" data-product-tile="add-to-cart">View Item</button>
-                            </figure>
-                            <figcaption>
-                                <h3>Simple way of piece life</h3>
-                                <span>Armor Ramsey</span>
-                                <!-- <div class="item-price">
-                                    <span class="prev-price">$ 50.00</span>$ 40.00
-                                </div> -->
-                            </figcaption>
-                        </div>
-
-                        <div class="product-item">
-                            <figure class="product-style">
-                                <img src="/assets/images/product-item6.jpg" alt="Books" class="product-item">
-                                <button type="button" class="add-to-cart" data-product-tile="add-to-cart">View Item</button>
-                            </figure>
-                            <figcaption>
-                                <h3>Great travel at desert</h3>
-                                <span>Sanchit Howdy</span>
-                                <!-- <div class="item-price">
-                                    <span class="prev-price">$ 30.00</span>$ 38.00
-                                </div> -->
-                            </figcaption>
-                        </div>
-
-                        <div class="product-item">
-                            <figure class="product-style">
-                                <img src="/assets/images/product-item7.jpg" alt="Books" class="product-item">
-                                <button type="button" class="add-to-cart" data-product-tile="add-to-cart">View Item</button>
-                            </figure>
-                            <figcaption>
-                                <h3>The lady beauty Scarlett</h3>
-                                <span>Arthur Doyle</span>
-                                <!-- <div class="item-price">
-                                    <span class="prev-price">$ 35.00</span>$ 45.00
-                                </div> -->
-                            </figcaption>
-                        </div>
-
-                        <div class="product-item">
-                            <figure class="product-style">
-                                <img src="/assets/images/product-item8.jpg" alt="Books" class="product-item">
-                                <button type="button" class="add-to-cart" data-product-tile="add-to-cart">View Item</button>
-                            </figure>
-                            <figcaption>
-                                <h3>Once upon a time</h3>
-                                <span>Klien Marry</span>
-                                <!-- <div class="item-price">
-                                    <span class="prev-price">$ 25.00</span>$ 35.00
-                                </div> -->
-                            </figcaption>
-                        </div>
-
-                        <div class="product-item">
-                            <figure class="product-style">
-                                <img src="/assets/images/product-item2.jpg" alt="Books" class="product-item">
-                                <button type="button" class="add-to-cart" data-product-tile="add-to-cart">View Item</button>
-                            </figure>
-                            <figcaption>
-                                <h3>Simple way of piece life</h3>
-                                <span>Armor Ramsey</span>
-                                <!-- <div class="item-price">$ 40.00</div> -->
-                            </figcaption>
-                        </div>
-                        <div class="product-item">
-                            <figure class="product-style">
-                                <img src="/assets/images/product-item1.jpg" alt="Books" class="product-item">
-                                <button type="button" class="add-to-cart" data-product-tile="add-to-cart">View Item</button>
-                            </figure>
-                            <figcaption>
-                                <h3>Simple way of piece life</h3>
-                                <span>Armor Ramsey</span>
-                                <!-- <div class="item-price">$ 40.00</div> -->
-                            </figcaption>
-                        </div>
-                    </div><!--grid-->
-                </div>
-            </div><!--inner-content-->
-        </div>
-    </div>
+  </div>
 </section>
 
-<section id="subscribe">
-    <div class="container">
-        <div class="row justify-content-center">
-
-            <div class="col-md-8">
-                <div class="row">
-
-                    <div class="col-md-6">
-
-                        <div class="title-element">
-                            <h2 class="section-title divider">Subscribe to our newsletter</h2>
-                        </div>
-
-                    </div>
-                    <div class="col-md-6">
-
-                        <div class="subscribe-content" data-aos="fade-up">
-                            <p>Occasional notes on rest, breath, and workshops▶no clutter, only calm.</p>
-                            <form id="form">
-                                <input type="text" name="email" placeholder="Enter your email addresss here">
-                                <button class="btn-subscribe">
-                                    <span>send</span>
-                                    <i class="icon icon-send"></i>
-                                </button>
-                            </form>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
+<section id="latest-blog" class="blog-section">
+  <div class="container">
+    <div class="section-header-center">
+      <span class="section-label">Journal</span>
+      <h2 class="section-heading">Latest Articles</h2>
     </div>
-</section>
-
-<section id="latest-blog" class="py-5 my-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-
-                <div class="section-header align-center">
-                    <div class="title">
-                        <span>Read our articles</span>
-                    </div>
-                    <h2 class="section-title">Latest Articles</h2>
-                </div>
-
-                <div class="row">
-
-                    <div class="col-md-4">
-
-                        <article class="column" data-aos="fade-up">
-
-                            <figure>
-                                <a href="#" class="image-hvr-effect">
-                                    <img src="/assets/images/post-img1.jpg" alt="post" class="post-image">
-                                </a>
-                            </figure>
-
-                            <div class="post-item">
-                                <div class="meta-date">Mar 30, 2021</div>
-                                <h3><a href="#">Reading books always makes the moments happy</a></h3>
-
-                                <div class="links-element">
-                                    <div class="categories">inspiration</div>
-                                    <div class="social-links">
-                                        <ul>
-                                            <li>
-                                                <a href="#"><i class="icon icon-facebook"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="icon icon-twitter"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="icon icon-behance-square"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div><!--links-element-->
-
-                            </div>
-                        </article>
-
-                    </div>
-                    <div class="col-md-4">
-
-                        <article class="column" data-aos="fade-up" data-aos-delay="200">
-                            <figure>
-                                <a href="#" class="image-hvr-effect">
-                                    <img src="/assets/images/post-img2.jpg" alt="post" class="post-image">
-                                </a>
-                            </figure>
-                            <div class="post-item">
-                                <div class="meta-date">Mar 29, 2021</div>
-                                <h3><a href="#">Reading books always makes the moments happy</a></h3>
-
-                                <div class="links-element">
-                                    <div class="categories">inspiration</div>
-                                    <div class="social-links">
-                                        <ul>
-                                            <li>
-                                                <a href="#"><i class="icon icon-facebook"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="icon icon-twitter"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="icon icon-behance-square"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div><!--links-element-->
-
-                            </div>
-                        </article>
-
-                    </div>
-                    <div class="col-md-4">
-
-                        <article class="column" data-aos="fade-up" data-aos-delay="400">
-                            <figure>
-                                <a href="#" class="image-hvr-effect">
-                                    <img src="/assets/images/post-img3.jpg" alt="post" class="post-image">
-                                </a>
-                            </figure>
-                            <div class="post-item">
-                                <div class="meta-date">Feb 27, 2021</div>
-                                <h3><a href="#">Reading books always makes the moments happy</a></h3>
-
-                                <div class="links-element">
-                                    <div class="categories">inspiration</div>
-                                    <div class="social-links">
-                                        <ul>
-                                            <li>
-                                                <a href="#"><i class="icon icon-facebook"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="icon icon-twitter"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="icon icon-behance-square"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div><!--links-element-->
-
-                            </div>
-                        </article>
-
-                    </div>
-
-                </div>
-
-                <div class="row">
-
-                    <div class="btn-wrap align-center">
-                        <a routerLink="/blog" class="btn btn-outline-accent btn-accent-arrow btn-pill" tabindex="0">Read all articles<i class="icon icon-ns-arrow-right"></i></a>
-                    </div>
-                </div>
-
-            </div>
+    <div class="blog-grid">
+      <article class="blog-card-modern">
+        <figure>
+          <a href="#" class="image-hvr-effect">
+            <img src="/assets/images/post-img1.jpg" alt="post" />
+          </a>
+        </figure>
+        <div class="blog-card-body">
+          <div class="meta-date">Mar 30, 2021</div>
+          <h3><a href="#">Reading books always makes the moments happy</a></h3>
+          <div class="categories">inspiration</div>
         </div>
+      </article>
+      <article class="blog-card-modern">
+        <figure>
+          <a href="#" class="image-hvr-effect">
+            <img src="/assets/images/post-img2.jpg" alt="post" />
+          </a>
+        </figure>
+        <div class="blog-card-body">
+          <div class="meta-date">Mar 29, 2021</div>
+          <h3><a href="#">The art of stillness in a moving world</a></h3>
+          <div class="categories">mindfulness</div>
+        </div>
+      </article>
+      <article class="blog-card-modern">
+        <figure>
+          <a href="#" class="image-hvr-effect">
+            <img src="/assets/images/post-img3.jpg" alt="post" />
+          </a>
+        </figure>
+        <div class="blog-card-body">
+          <div class="meta-date">Feb 27, 2021</div>
+          <h3><a href="#">Breath as the bridge to presence</a></h3>
+          <div class="categories">breathwork</div>
+        </div>
+      </article>
     </div>
+    <div class="btn-wrap align-center" style="margin-top: 2.5rem;">
+      <a routerLink="/blog" class="btn btn-outline-pill">Read All Articles <i class="icon icon-ns-arrow-right"></i></a>
+    </div>
+  </div>
 </section>

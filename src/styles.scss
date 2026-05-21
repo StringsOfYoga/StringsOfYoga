@@ -2970,19 +2970,22 @@ section:first-of-type {
     cursor: pointer;
 }
 
-/* -- Header Theme: Creme & Pastel Olive
+/* -- Header Theme: Minimal Editorial
 --------------------------------------------------------------*/
 .top-content {
-    background: var(--section-bg);
-    border-bottom: 1px solid var(--header-border);
+  display: none;
+}
 
-    a {
-        color: var(--body-text-color);
-
-        &:hover {
-            color: var(--accent-color);
-        }
-    }
+#header {
+  background: var(--header-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.03);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--header-border);
+  padding: 0;
 }
 
 /* — Micro-interactions & Global Polish — */
