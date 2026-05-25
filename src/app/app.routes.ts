@@ -1,9 +1,29 @@
 import { Routes } from '@angular/router';
 import { Home } from './features/home/home';
+import { AdminLogin } from './features/admin/login/admin-login';
+import { AdminDashboard } from './features/admin/dashboard/admin-dashboard';
+import { AdminWorkshops } from './features/admin/workshops/admin-workshops';
+import { AdminResources } from './features/admin/resources/admin-resources';
+import { AdminPlaceholder } from './features/admin/placeholder/admin-placeholder';
 
 export const routes: Routes = [
   { path: '', component: Home, title: 'Home' },
   { path: 'home', redirectTo: '', pathMatch: 'full' },
+  { path: 'admin/login', component: AdminLogin, title: 'Admin Login' },
+  {
+    path: 'admin',
+    component: AdminDashboard,
+    title: 'Admin Dashboard',
+    children: [
+      { path: '', redirectTo: 'workshops', pathMatch: 'full' },
+      { path: 'workshops', component: AdminWorkshops, title: 'Manage Workshops' },
+      { path: 'resources', component: AdminResources, title: 'Manage Resources' },
+      { path: 'courses', component: AdminPlaceholder, title: 'Manage Courses', data: { sectionName: 'Courses' } },
+      { path: 'blog', component: AdminPlaceholder, title: 'Manage Blog', data: { sectionName: 'Blog' } },
+      { path: 'featured', component: AdminPlaceholder, title: 'Manage Featured', data: { sectionName: 'Featured' } },
+      { path: 'settings', component: AdminPlaceholder, title: 'Settings', data: { sectionName: 'Settings' } }
+    ]
+  },
   {
     path: 'about',
     loadComponent: () => import('./features/about/about').then(m => m.About),

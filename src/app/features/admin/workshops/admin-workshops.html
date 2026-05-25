@@ -1,0 +1,297 @@
+<div class="workshops-page">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">Workshops</h1>
+      <p class="page-subtitle">Manage upcoming gatherings and events</p>
+    </div>
+    <button class="btn-add" (click)="openCreateForm()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="12" y1="5" x2="12" y2="19"></line>
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+      </svg>
+      Add Workshop
+    </button>
+  </div>
+
+  @if (workshops.length === 0) {
+    <div class="empty-state">
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+        <line x1="16" y1="2" x2="16" y2="6"></line>
+        <line x1="8" y1="2" x2="8" y2="6"></line>
+        <line x1="3" y1="10" x2="21" y2="10"></line>
+      </svg>
+      <h3>No workshops yet</h3>
+      <p>Create your first workshop to get started.</p>
+      <button class="btn-add" (click)="openCreateForm()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+        Add Workshop
+      </button>
+    </div>
+  } @else {
+    <div class="view-toggle">
+      <button
+        class="toggle-btn"
+        [class.active]="viewMode === 'cards'"
+        (click)="viewMode = 'cards'"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="7" height="7"></rect>
+          <rect x="14" y="3" width="7" height="7"></rect>
+          <rect x="14" y="14" width="7" height="7"></rect>
+          <rect x="3" y="14" width="7" height="7"></rect>
+        </svg>
+        Cards
+      </button>
+      <button
+        class="toggle-btn"
+        [class.active]="viewMode === 'table'"
+        (click)="viewMode = 'table'"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="8" y1="6" x2="21" y2="6"></line>
+          <line x1="8" y1="12" x2="21" y2="12"></line>
+          <line x1="8" y1="18" x2="21" y2="18"></line>
+          <line x1="3" y1="6" x2="3.01" y2="6"></line>
+          <line x1="3" y1="12" x2="3.01" y2="12"></line>
+          <line x1="3" y1="18" x2="3.01" y2="18"></line>
+        </svg>
+        Table
+      </button>
+    </div>
+
+    @if (viewMode === 'cards') {
+      <div class="workshop-cards">
+        @for (workshop of workshops; track workshop.id) {
+          <div class="workshop-card">
+            <div class="card-image" [class.featured]="workshop.featured">
+              @if (workshop.coverImage) {
+                <img [src]="workshop.coverImage" [alt]="workshop.title" />
+              } @else {
+                <div class="image-placeholder">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                    <polyline points="21 15 16 10 5 21"></polyline>
+                  </svg>
+                </div>
+              }
+              @if (workshop.featured) {
+                <span class="featured-badge">Featured</span>
+              }
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">{{ workshop.title }}</h3>
+              <p class="card-description">{{ workshop.description }}</p>
+              <div class="card-meta">
+                <span class="meta-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                  {{ formatDate(workshop.date) }}
+                </span>
+                <span class="meta-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  {{ workshop.time }}
+                </span>
+                <span class="meta-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  {{ workshop.location }}
+                </span>
+              </div>
+              <div class="card-actions">
+                <button class="btn-icon btn-edit" (click)="openEditForm(workshop)" title="Edit">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                  </svg>
+                </button>
+                <button class="btn-icon btn-featured" (click)="toggleFeatured(workshop)" [class.active]="workshop.featured" [title]="workshop.featured ? 'Unfeature' : 'Feature'">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                </button>
+                <button class="btn-icon btn-delete" (click)="onDelete(workshop)" title="Delete">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="3 6 5 6 21 6"></polyline>
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    } @else {
+      <div class="workshop-table-wrapper">
+        <table class="workshop-table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Location</th>
+              <th>Featured</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (workshop of workshops; track workshop.id) {
+              <tr>
+                <td>
+                  <div class="table-title">
+                    @if (workshop.coverImage) {
+                      <img [src]="workshop.coverImage" [alt]="workshop.title" class="table-thumb" />
+                    }
+                    <span>{{ workshop.title }}</span>
+                  </div>
+                </td>
+                <td>{{ formatDate(workshop.date) }}</td>
+                <td>{{ workshop.time }}</td>
+                <td>{{ workshop.location }}</td>
+                <td>
+                  <button class="btn-featured-toggle" (click)="toggleFeatured(workshop)" [class.active]="workshop.featured">
+                    @if (workshop.featured) {
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                      </svg>
+                    } @else {
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                      </svg>
+                    }
+                  </button>
+                </td>
+                <td>
+                  <div class="table-actions">
+                    <button class="btn-icon btn-edit" (click)="openEditForm(workshop)">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                      </svg>
+                    </button>
+                    <button class="btn-icon btn-delete" (click)="onDelete(workshop)">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="3 6 5 6 21 6"></polyline>
+                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    }
+  }
+
+  @if (showForm) {
+    <div class="form-modal-backdrop" (click)="closeForm()"></div>
+    <div class="form-modal">
+      <div class="form-header">
+        <h2>{{ editingId ? 'Edit Workshop' : 'Create Workshop' }}</h2>
+        <button class="btn-close-form" (click)="closeForm()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <form class="workshop-form" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+          <div class="form-group full">
+            <label for="title">Title</label>
+            <input id="title" type="text" [(ngModel)]="form.title" name="title" placeholder="e.g. Equinox Retreat" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea id="description" [(ngModel)]="form.description" name="description" rows="3" placeholder="Brief description of the workshop..."></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="date">Date</label>
+            <input id="date" type="date" [(ngModel)]="form.date" name="date" required />
+          </div>
+          <div class="form-group">
+            <label for="time">Time</label>
+            <input id="time" type="text" [(ngModel)]="form.time" name="time" placeholder="e.g. 09:00 AM" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="location">Location</label>
+          <input id="location" type="text" [(ngModel)]="form.location" name="location" placeholder="e.g. Sedona, Arizona" />
+        </div>
+
+        <div class="form-group">
+          <label>Cover Image</label>
+          <app-media-uploader
+            [allowedTypes]="['image']"
+            [multiple]="false"
+            [maxFileSize]="10 * 1024 * 1024"
+            [hideUrlTab]="true"
+            label="Upload Cover Image"
+            folder="soy/workshops"
+            (mediaUploaded)="onCoverImageUploaded($event)"
+            (mediaRemoved)="onCoverImageRemoved()"
+          ></app-media-uploader>
+          @if (form.coverImage) {
+            <div class="current-image-preview">
+              <img [src]="form.coverImage" alt="Current cover" />
+              <button type="button" class="btn-remove-current" (click)="onCoverImageRemoved()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+                Remove
+              </button>
+            </div>
+          }
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="ctaText">CTA Button Text</label>
+            <input id="ctaText" type="text" [(ngModel)]="form.ctaText" name="ctaText" placeholder="e.g. Reserve Spot" />
+          </div>
+          <div class="form-group">
+            <label for="ctaLink">CTA Link</label>
+            <input id="ctaLink" type="text" [(ngModel)]="form.ctaLink" name="ctaLink" placeholder="e.g. /workshops" />
+          </div>
+        </div>
+
+        <div class="form-group checkbox-group">
+          <label class="checkbox-label">
+            <input type="checkbox" [(ngModel)]="form.featured" name="featured" />
+            <span class="checkbox-custom"></span>
+            Mark as Featured
+          </label>
+        </div>
+
+        <div class="form-footer">
+          <button type="button" class="btn-cancel" (click)="closeForm()">Cancel</button>
+          <button type="submit" class="btn-submit" [disabled]="!form.title || !form.date">
+            {{ editingId ? 'Update Workshop' : 'Create Workshop' }}
+          </button>
+        </div>
+      </form>
+    </div>
+  }
+</div>

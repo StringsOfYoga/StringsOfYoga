@@ -1,0 +1,47 @@
+<div class="login-page">
+  <div class="login-container">
+    <div class="login-brand">
+      <a routerLink="/" class="brand-link">Strings of Yoga</a>
+      <span class="brand-subtitle">Admin Panel</span>
+    </div>
+
+    <form class="login-form" (ngSubmit)="onSubmit()" autocomplete="off">
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          id="password"
+          type="password"
+          class="form-input"
+          [(ngModel)]="password"
+          name="password"
+          placeholder="Enter admin password"
+          required
+          [disabled]="loading"
+        />
+      </div>
+
+      @if (error) {
+        <div class="error-message">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+          {{ error }}
+        </div>
+      }
+
+      <button type="submit" class="btn-login" [disabled]="loading || !password">
+        @if (loading) {
+          <span class="spinner"></span>
+        } @else {
+          Sign In
+        }
+      </button>
+    </form>
+
+    <div class="login-footer">
+      <a routerLink="/">Back to website</a>
+    </div>
+  </div>
+</div>

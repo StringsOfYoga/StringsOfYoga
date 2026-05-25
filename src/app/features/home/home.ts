@@ -4,6 +4,8 @@ import { RouterLink } from '@angular/router';
 import * as AOS from 'aos';
 import GLightbox from 'glightbox';
 import { SeoService } from '../../core/services/seo.service';
+import { WorkshopService } from '../../core/services/workshop.service';
+import { Workshop } from '../../core/models/workshop.model';
 declare const $: {
   (selector: string): {
     slick: (opts: object) => void;
@@ -19,6 +21,7 @@ declare const $: {
 export class Home implements OnInit, AfterViewInit {
   private readonly zone = inject(NgZone);
   private readonly seo = inject(SeoService);
+  private readonly workshopService = inject(WorkshopService);
   private lightbox: ReturnType<typeof GLightbox> | null = null;
 
   @ViewChild('founderVideo') founderVideoRef!: ElementRef<HTMLVideoElement>;
@@ -26,12 +29,29 @@ export class Home implements OnInit, AfterViewInit {
   activeTab = 'all-genre';
   tabs = ['all-genre', 'business', 'technology', 'romantic', 'adventure', 'fictional'];
   isMuted = true;
+  upcomingWorkshops: Workshop[] = [];
 
   ngOnInit(): void {
     this.seo.setPage({
       title: 'Home',
       description:
         'Strings of Yoga — calm Yog Nidra, breathwork, and restorative wellness. Find your flow, one string at a time.'
+    });
+
+    this.workshopService.workshops$.subscribe(workshops => {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      const upcoming = workshops
+        .filter(w => {
+          if (!w.date) return false;
+          const workshopDate = new Date(w.date);
+          return workshopDate >= today;
+        })
+        .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+        .slice(0, 3);
+
+      this.upcomingWorkshops = upcoming;
     });
   }
 
@@ -45,6 +65,14 @@ export class Home implements OnInit, AfterViewInit {
       video.muted = !video.muted;
       this.isMuted = video.muted;
     }
+  }
+
+  formatDate(dateStr: string): { month: string; day: string } {
+    if (!dateStr) return { month: '', day: '' };
+    const date = new Date(dateStr);
+    const month = date.toLocaleDateString('en-US', { month: 'short' }).toUpperCase();
+    const day = date.getDate().toString().padStart(2, '0');
+    return { month, day };
   }
 
   ngAfterViewInit(): void {

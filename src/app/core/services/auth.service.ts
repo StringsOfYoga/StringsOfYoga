@@ -1,38 +1,41 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, tap } from 'rxjs';
-import { environment } from '../../../environments/environment';
-import { AuthRequest } from '../models/api.models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private readonly baseUrl = environment.apiUrl;
-  private token = '';
+  private readonly MOCK_PASSWORD = 'admin123';
+  private authenticated = false;
 
-  constructor(private readonly http: HttpClient) {}
-
-  register(payload: AuthRequest): Observable<any> {
-    return this.http.post(`${this.baseUrl}/register`, payload);
+  login(password: string): boolean {
+    if (password === this.MOCK_PASSWORD) {
+      this.authenticated = true;
+      localStorage.setItem('soy_admin_auth', 'true');
+      return true;
+    }
+    return false;
   }
 
-  login(payload: AuthRequest): Observable<any> {
-    return this.http.post(`${this.baseUrl}/login`, payload).pipe(
-      tap((res: any) => {
-        const t = res?.token ?? res?.accessToken;
-        if (t) {
-          this.setToken(t);
-        }
-      })
-    );
+  logout(): void {
+    this.authenticated = false;
+    localStorage.removeItem('soy_admin_auth');
   }
 
-  setToken(token: string): void {
-    this.token = token;
+  isAuthenticated(): boolean {
+    if (this.authenticated) return true;
+    const stored = localStorage.getItem('soy_admin_auth');
+    this.authenticated = stored === 'true';
+    return this.authenticated;
   }
 
-  getToken(): string {
-    return this.token;
+  requireAuth(): boolean {
+    if (!this.isAuthenticated()) {
+      return false;
+    }
+    return true;
+  }
+
+  getToken(): string | null {
+    return this.isAuthenticated() ? localStorage.getItem('soy_admin_auth') : null;
   }
 }
