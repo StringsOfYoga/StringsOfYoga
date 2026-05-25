@@ -75,6 +75,7 @@ svg {
 
     --secondary-color: #D9DFD2;       /* sage mist */
     --gold-accent: #B89B72;           /* soft luxury gold */
+    --gold-color: var(--gold-accent);
 
 
     /* =========================
@@ -2457,7 +2458,7 @@ span.prev-price {
 
 /*----- Latest Blog Section
 --------------------------------------------------------------*/
-#latest-blog {}
+// #latest-blog {}
 
 #latest-blog article.column {
     margin-bottom: 60px;

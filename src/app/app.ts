@@ -13,12 +13,15 @@ import { filter } from 'rxjs';
 export class App {
   protected readonly title = signal('StringsOfYoga');
   protected showFooter = signal(true);
+  protected showHeader = signal(true);
 
   constructor(private router: Router) {
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe((event: any) => {
-      this.showFooter.set(!event.urlAfterRedirects.startsWith('/admin'));
+      const isAdmin = event.urlAfterRedirects.startsWith('/admin');
+      this.showFooter.set(!isAdmin);
+      this.showHeader.set(!isAdmin);
     });
   }
 }
