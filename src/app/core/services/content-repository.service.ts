@@ -7,6 +7,7 @@ import { ContentCollection, ContentMedia } from '../models/content.models';
 import { GalleryCollection, GalleryMedia } from '../models/api.models';
 import { CollectionService } from './collection.service';
 import { MediaService } from './media.service';
+import { toCamelCase } from './api-response.helper';
 
 @Injectable({ providedIn: 'root' })
 export class ContentRepositoryService {
@@ -23,7 +24,7 @@ export class ContentRepositoryService {
       return this.loadMockMedia().pipe(map(items => items.filter(m => m.isFeatured)));
     }
     return this.mediaService.getFeaturedMedia().pipe(
-      map(res => this.normalizeMedia(res)),
+      map(res => this.normalizeMedia(toCamelCase(res))),
       catchError(() =>
         this.loadMockMedia().pipe(map(items => items.filter(m => m.isFeatured)))
       )
@@ -35,7 +36,7 @@ export class ContentRepositoryService {
       return this.loadMockMedia();
     }
     return this.mediaService.searchMedia('').pipe(
-      map(res => this.normalizeMedia(res)),
+      map(res => this.normalizeMedia(toCamelCase(res))),
       catchError(() => this.loadMockMedia())
     );
   }
@@ -44,7 +45,7 @@ export class ContentRepositoryService {
     const source$ = environment.useMockData
       ? this.loadMockMedia()
       : this.mediaService.searchMedia(query).pipe(
-          map(res => this.normalizeMedia(res)),
+          map(res => this.normalizeMedia(toCamelCase(res))),
           catchError(() => this.loadMockMedia())
         );
 
@@ -75,7 +76,7 @@ export class ContentRepositoryService {
       );
     }
     return this.mediaService.getMediaByCollection(collectionId).pipe(
-      map(res => this.normalizeMedia(res)),
+      map(res => this.normalizeMedia(toCamelCase(res))),
       catchError(() =>
         this.loadMockMedia().pipe(
           map(items => items.filter(m => m.collectionId === collectionId))
@@ -89,7 +90,7 @@ export class ContentRepositoryService {
       return this.loadMockCollections();
     }
     return this.collectionService.getCollections().pipe(
-      map(res => this.normalizeCollections(res)),
+      map(res => this.normalizeCollections(toCamelCase(res))),
       catchError(() => this.loadMockCollections())
     );
   }
@@ -101,7 +102,7 @@ export class ContentRepositoryService {
       );
     }
     return this.collectionService.getFeaturedCollections().pipe(
-      map(res => this.normalizeCollections(res)),
+      map(res => this.normalizeCollections(toCamelCase(res))),
       catchError(() =>
         this.loadMockCollections().pipe(map(c => c.filter(item => item.isFeatured)))
       )

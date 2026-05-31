@@ -53,7 +53,9 @@ export class MediaUploader implements OnInit {
       mediaFile.uploadProgress = 0;
 
       try {
-        const result = await this.cloudinary.uploadFile(mediaFile.file, this.folder).toPromise();
+        const result = await this.cloudinary.uploadFile(mediaFile.file, this.folder, p => {
+          mediaFile.uploadProgress = p;
+        }).toPromise();
 
         if (result) {
           mediaFile.cloudinaryUrl = result.secure_url;

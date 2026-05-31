@@ -13,7 +13,7 @@
     } @else {
       <div class="row g-4">
         @for (course of courses; track course.id) {
-          <div class="col-md-6 col-lg-4" data-aos="fade-up">
+          <div class="col-md-6 col-lg-4">
             <app-course-card [course]="course" />
           </div>
         }

@@ -60,7 +60,12 @@
                 name="message"
               ></textarea>
             </div>
-            <button type="submit" class="btn btn-common btn-pill">Send message</button>
+            @if (error) {
+              <div class="alert alert-danger">{{ error }}</div>
+            }
+            <button type="submit" class="btn btn-common btn-pill" [disabled]="loading">
+              {{ loading ? 'Sending...' : 'Send message' }}
+            </button>
           </form>
         }
       </div>

@@ -1,0 +1,29 @@
+{
+  "brand": {
+    "name": "Strings of Yoga",
+    "slogan": "Find your flow, 1 string at a time.",
+    "mission": "To create calm and comforting spaces where we feel to heal.",
+    "vision": "We are committed to guide people in reconnecting with themselves and calming one string at a time.",
+    "email": "hello@stringsofyoga.com",
+    "phone": ""
+  },
+  "about": {
+    "headline": "Guiding you home, one breath at a time",
+    "story": "Strings of Yoga was born from a deep belief that healing begins when we slow down, breathe, and reconnect with our bodies. Our founder, after navigating her own journey with anxiety, created this space so others could find the same sense of peace and belonging through gentle, mindful practice.",
+    "philosophy": "We believe yoga is not about flexibility or perfection — it is about showing up as you are, honoring your body, and finding stillness in a chaotic world. Every class is a safe, judgment-free space where you can explore movement at your own pace.",
+    "image": "/assets/images/footer-bg.png"
+  },
+  "heroSlides": [
+    {
+      "title": "Find Your Calm",
+      "description": "Gentle, supportive sessions for anxiety, depression, and mental wellness.",
+      "image": "/assets/images/hero-bg.jpg",
+      "ctaPrimary": { "label": "Explore Sessions", "route": "/courses" },
+      "ctaSecondary": { "label": "Learn More", "route": "/about" }
+    }
+  ],
+  "quote": {
+    "text": "Yoga is the journey of the self, through the self, to the self.",
+    "author": "The Bhagavad Gita"
+  }
+}

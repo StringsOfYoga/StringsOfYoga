@@ -413,6 +413,19 @@
   }
 }
 
+.event-link {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex: 1;
+  text-decoration: none;
+  color: inherit;
+
+  &:hover h3 {
+    color: var(--accent-color);
+  }
+}
+
 .event-date {
   display: flex;
   flex-direction: column;
@@ -777,6 +790,11 @@
     text-align: center;
     gap: 1rem;
     padding: 1.5rem;
+
+    .event-link {
+      flex-direction: column;
+      text-align: center;
+    }
   }
 
   .newsletter-form {

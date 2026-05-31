@@ -40,6 +40,12 @@ export const routes: Routes = [
     title: 'Workshops'
   },
   {
+    path: 'workshops/:id',
+    loadComponent: () =>
+      import('./features/workshops/workshop-detail/workshop-detail').then(m => m.WorkshopDetail),
+    title: 'Workshop'
+  },
+  {
     path: 'resources',
     loadComponent: () => import('./features/resources/resources').then(m => m.Resources),
     title: 'Resources'

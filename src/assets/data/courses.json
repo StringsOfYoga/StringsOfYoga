@@ -1,0 +1,52 @@
+[
+  {
+    "id": "course-1",
+    "title": "Yog Nidra",
+    "description": "A guided deep relaxation practice that gently leads you to a state of conscious rest. Perfect for releasing tension and improving sleep.",
+    "duration": "45 min",
+    "level": "All levels",
+    "format": "1-on-1 · In-person",
+    "image": "/assets/images/courses/yog-nidra.jpg",
+    "slug": "yog-nidra"
+  },
+  {
+    "id": "course-2",
+    "title": "Hatha Yoga",
+    "description": "Slow-paced, grounding postures held with awareness. Build strength, flexibility, and inner peace through mindful movement.",
+    "duration": "60 min",
+    "level": "Beginner-friendly",
+    "format": "Group · In-person",
+    "image": "/assets/images/courses/hatha.jpg",
+    "slug": "hatha-yoga"
+  },
+  {
+    "id": "course-3",
+    "title": "Pregnancy Yoga",
+    "description": "Nurturing prenatal movement designed to support your changing body, ease discomfort, and prepare for birth with confidence.",
+    "duration": "50 min",
+    "level": "Prenatal",
+    "format": "1-on-1 · In-person",
+    "image": "/assets/images/courses/prenatal.jpg",
+    "slug": "pregnancy-yoga"
+  },
+  {
+    "id": "course-4",
+    "title": "Restorative Yoga",
+    "description": "Deeply relaxing, prop-supported poses held for longer durations to calm the nervous system and restore energy.",
+    "duration": "60 min",
+    "level": "All levels",
+    "format": "1-on-1 · In-person",
+    "image": "/assets/images/courses/restorative.jpg",
+    "slug": "restorative-yoga"
+  },
+  {
+    "id": "course-5",
+    "title": "Breathwork",
+    "description": "Conscious breathing techniques to manage anxiety, improve focus, and reconnect with your body's natural rhythm.",
+    "duration": "30 min",
+    "level": "All levels",
+    "format": "1-on-1 · Online",
+    "image": "/assets/images/courses/breathwork.jpg",
+    "slug": "breathwork"
+  }
+]

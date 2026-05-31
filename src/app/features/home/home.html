@@ -273,15 +273,17 @@
     <div class="events-list">
       @for (workshop of upcomingWorkshops; track workshop.id) {
         <div class="event-item">
-          <div class="event-date">
-            <span class="event-month">{{ formatDate(workshop.date).month }}</span>
-            <span class="event-day">{{ formatDate(workshop.date).day }}</span>
-          </div>
-          <div class="event-details">
-            <h3>{{ workshop.title }}</h3>
-            <p>{{ workshop.location }}{{ workshop.time ? ' · ' + workshop.time : '' }}</p>
-          </div>
-          <a routerLink="/workshops" class="btn btn-event">{{ workshop.ctaText || 'Reserve Spot' }}</a>
+          <a [routerLink]="['/workshops', workshop.id]" class="event-link">
+            <div class="event-date">
+              <span class="event-month">{{ formatDate(workshop.date).month }}</span>
+              <span class="event-day">{{ formatDate(workshop.date).day }}</span>
+            </div>
+            <div class="event-details">
+              <h3>{{ workshop.title }}</h3>
+              <p>{{ workshop.location }}{{ workshop.time ? ' · ' + workshop.time : '' }}</p>
+            </div>
+          </a>
+          <a [routerLink]="['/workshops', workshop.id]" class="btn btn-event">{{ workshop.ctaText || 'Reserve Spot' }}</a>
         </div>
       } @empty {
         <div class="event-empty">

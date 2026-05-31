@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpEventType, HttpProgressEvent } from '@angular/common/http';
+import { HttpClient, HttpEventType, HttpResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { map, catchError, tap } from 'rxjs/operators';
+import { filter, map, catchError, tap } from 'rxjs/operators';
 import { CloudinaryUploadResult, UploadConfig, DEFAULT_UPLOAD_CONFIG } from '../models/media.model';
 
 @Injectable({
@@ -16,7 +16,7 @@ export class CloudinaryUploadService {
     this.config = { ...this.config, ...config };
   }
 
-  uploadFile(file: File, folder: string = 'soy'): Observable<CloudinaryUploadResult> {
+  uploadFile(file: File, folder: string = 'soy', onProgress?: (progress: number) => void): Observable<CloudinaryUploadResult> {
     const formData = new FormData();
     formData.append('file', file);
     formData.append('upload_preset', this.config.uploadPreset);
@@ -29,16 +29,12 @@ export class CloudinaryUploadService {
       observe: 'events'
     }).pipe(
       tap(event => {
-        if (event.type === HttpEventType.UploadProgress) {
-          const progress = Math.round((event.loaded / (event.total || 1)) * 100);
+        if (event.type === HttpEventType.UploadProgress && onProgress) {
+          onProgress(Math.round((event.loaded / (event.total || 1)) * 100));
         }
       }),
-      map(event => {
-        if (event.type === HttpEventType.Response) {
-          return event.body as CloudinaryUploadResult;
-        }
-        throw new Error('Upload failed');
-      }),
+      filter(event => event.type === HttpEventType.Response),
+      map(event => (event as HttpResponse<CloudinaryUploadResult>).body as CloudinaryUploadResult),
       catchError(error => {
         return throwError(() => new Error(`Cloudinary upload failed: ${error.message}`));
       })

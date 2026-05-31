@@ -36,8 +36,8 @@ export interface UploadConfig {
 }
 
 export const DEFAULT_UPLOAD_CONFIG: UploadConfig = {
-  cloudName: 'your-cloud-name',
-  uploadPreset: 'your-upload-preset',
+  cloudName: 'dlldkciug',
+  uploadPreset: 'soy_unsigned',
   maxFileSize: 50 * 1024 * 1024,
   allowedTypes: ['image', 'video', 'audio', 'pdf', 'document']
 };

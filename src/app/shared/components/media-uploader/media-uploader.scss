@@ -229,20 +229,18 @@
   gap: 0.5rem;
 }
 
-.progress-bar {
+.progress-track {
   flex: 1;
   height: 4px;
   background: var(--border-color);
   border-radius: 2px;
   overflow: hidden;
+}
 
-  &::after {
-    content: '';
-    display: block;
-    height: 100%;
-    background: var(--accent-color);
-    transition: width 0.3s ease;
-  }
+.progress-bar {
+  height: 100%;
+  background: var(--accent-color);
+  transition: width 0.3s ease;
 }
 
 .progress-text {

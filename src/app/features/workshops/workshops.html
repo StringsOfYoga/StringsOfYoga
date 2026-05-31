@@ -8,11 +8,32 @@
   <div class="container">
     @if (loading) {
       <p class="loading-state" role="status">Loading workshops…</p>
+    } @else if (workshops.length === 0) {
+      <p class="text-center text-muted">No workshops available right now.</p>
     } @else {
       <div class="row g-4">
         @for (w of workshops; track w.id) {
           <div class="col-md-6 col-lg-4">
-            <app-workshop-card [workshop]="w" />
+            <article class="workshop-card soft-card h-100">
+              <div class="workshop-card__media" [style.background-image]="'url(' + w.coverImage + ')'">
+                @if (w.featured) {
+                  <span class="workshop-card__category">Featured</span>
+                }
+              </div>
+              <div class="workshop-card__body">
+                <time class="workshop-card__date" [attr.datetime]="w.date">
+                  {{ w.date | date: 'mediumDate' }} · {{ w.time }}
+                </time>
+                <h3>{{ w.title }}</h3>
+                <p>{{ w.description }}</p>
+                <ul class="workshop-card__meta list-unstyled">
+                  <li>{{ w.location }}</li>
+                </ul>
+                <a [routerLink]="['/workshops', w.id]" class="btn btn-outline-accent btn-pill">
+                  {{ w.ctaText || 'Learn more' }}
+                </a>
+              </div>
+            </article>
           </div>
         }
       </div>

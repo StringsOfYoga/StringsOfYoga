@@ -1,0 +1,46 @@
+.workshop-image {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+.workshop-sidebar {
+  position: sticky;
+  top: 2rem;
+
+  .sidebar-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+  }
+
+  .sidebar-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--light-text-color);
+  }
+
+  .sidebar-value {
+    font-size: 1rem;
+    color: var(--dark-text-color);
+  }
+}

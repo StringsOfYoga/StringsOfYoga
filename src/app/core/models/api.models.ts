@@ -6,8 +6,10 @@ export interface AuthRequest {
 
 export interface CollectionRequest {
   name: string;
+  title?: string;
   description?: string;
   isFeatured?: boolean;
+  image?: string;
 }
 
 export interface MediaRequest {
@@ -18,6 +20,7 @@ export interface MediaRequest {
   collectionId?: string;
   description?: string;
   isFeatured?: boolean;
+  category?: string;
 }
 
 export interface GalleryCollection {

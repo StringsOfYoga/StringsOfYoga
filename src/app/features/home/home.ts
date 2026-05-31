@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, NgZone, OnInit, ViewChild, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import * as AOS from 'aos';
 import GLightbox from 'glightbox';
 import { SeoService } from '../../core/services/seo.service';
 import { WorkshopService } from '../../core/services/workshop.service';
@@ -43,6 +42,7 @@ export class Home implements OnInit, AfterViewInit {
       today.setHours(0, 0, 0, 0);
 
       const upcoming = workshops
+        .filter(w => w.featured && w.date) 
         .filter(w => {
           if (!w.date) return false;
           const workshopDate = new Date(w.date);
@@ -97,8 +97,6 @@ export class Home implements OnInit, AfterViewInit {
       autoplay: true,
       autoplaySpeed: 5000
     });
-    AOS.init({ duration: 600, once: true });
-    AOS.refreshHard();
     this.zone.runOutsideAngular(() => {
       setTimeout(() => {
         this.initLightbox();

@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { lastValueFrom } from 'rxjs';
 import { WorkshopService } from '../../../core/services/workshop.service';
 import { Workshop } from '../../../core/models/workshop.model';
-import { MediaUploader } from '../../../shared/components/media-uploader/media-uploader';
-import { MediaFile } from '../../../core/models/media.model';
+import { CloudinaryUploadService } from '../../../core/services/cloudinary-upload.service';
 
 @Component({
   selector: 'app-admin-workshops',
-  imports: [CommonModule, FormsModule, MediaUploader],
+  imports: [CommonModule, FormsModule],
   templateUrl: './admin-workshops.html',
   styleUrl: './admin-workshops.scss'
 })
@@ -17,6 +17,10 @@ export class AdminWorkshops implements OnInit {
   showForm = false;
   editingId: string | null = null;
   viewMode: 'table' | 'cards' = 'cards';
+  minDate = new Date().toISOString().split('T')[0];
+  selectedCoverFile: File | null = null;
+  coverPreview: string = '';
+  submitting = false;
 
   form = {
     title: '',
@@ -27,9 +31,11 @@ export class AdminWorkshops implements OnInit {
     coverImage: '',
     coverImagePublicId: '',
     ctaText: 'Reserve Spot',
-    ctaLink: '/workshops',
+    ctaLink: 'https://stringsofyoga.com/workshops',
     featured: false
   };
+
+  private readonly cloudinary = inject(CloudinaryUploadService);
 
   constructor(private workshopService: WorkshopService) {}
 
@@ -89,13 +95,55 @@ export class AdminWorkshops implements OnInit {
       coverImage: '',
       coverImagePublicId: '',
       ctaText: 'Reserve Spot',
-      ctaLink: '/workshops',
+      ctaLink: 'https://stringsofyoga.com/workshops',
       featured: false
     };
+    this.selectedCoverFile = null;
+    this.coverPreview = '';
   }
 
-  onSubmit(): void {
-    if (!this.form.title || !this.form.date) return;
+  onCoverSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    const file = input.files?.[0];
+    if (!file) return;
+
+    this.selectedCoverFile = file;
+    this.form.coverImage = '';
+    this.form.coverImagePublicId = '';
+
+    const reader = new FileReader();
+    reader.onload = e => this.coverPreview = e.target?.result as string;
+    reader.readAsDataURL(file);
+  }
+
+  onCoverImageRemoved(): void {
+    this.form.coverImage = '';
+    this.form.coverImagePublicId = '';
+    this.selectedCoverFile = null;
+    this.coverPreview = '';
+  }
+
+  async onSubmit(): Promise<void> {
+    if (!this.form.title || !this.form.date || this.submitting) return;
+
+    if (!this.editingId && new Date(this.form.date) < new Date(new Date().toDateString())) {
+      return;
+    }
+
+    this.submitting = true;
+
+    if (this.selectedCoverFile) {
+      try {
+        const result = await lastValueFrom(this.cloudinary.uploadFile(this.selectedCoverFile, 'soy/workshops'));
+        if (result) {
+          this.form.coverImage = result.secure_url;
+          this.form.coverImagePublicId = result.public_id;
+        }
+      } catch {
+        this.submitting = false;
+        return;
+      }
+    }
 
     const workshopData: any = {
       title: this.form.title,
@@ -119,6 +167,7 @@ export class AdminWorkshops implements OnInit {
       this.workshopService.addWorkshop(workshopData);
     }
 
+    this.submitting = false;
     this.closeForm();
   }
 
@@ -126,19 +175,6 @@ export class AdminWorkshops implements OnInit {
     if (confirm(`Delete "${workshop.title}"?`)) {
       this.workshopService.deleteWorkshop(workshop.id);
     }
-  }
-
-  onCoverImageUploaded(files: MediaFile[]): void {
-    if (files.length > 0) {
-      const file = files[0];
-      this.form.coverImage = file.cloudinaryUrl || file.preview || '';
-      this.form.coverImagePublicId = file.publicId || '';
-    }
-  }
-
-  onCoverImageRemoved(): void {
-    this.form.coverImage = '';
-    this.form.coverImagePublicId = '';
   }
 
   formatDate(dateStr: string): string {
