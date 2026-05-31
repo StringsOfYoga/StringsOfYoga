@@ -98,11 +98,21 @@ export class Home implements OnInit, AfterViewInit {
       autoplaySpeed: 5000
     });
     this.zone.runOutsideAngular(() => {
-      setTimeout(() => {
-        this.initLightbox();
-        this.initLazyLoad();
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          this.initLightbox();
+          this.initLazyLoad();
+        }, 200);
+      });
+      const onPageLoaded = () => {
         this.playFounderVideo();
-      }, 300);
+        window.removeEventListener('load', onPageLoaded);
+      };
+      if (document.readyState === 'complete') {
+        setTimeout(() => this.playFounderVideo(), 500);
+      } else {
+        window.addEventListener('load', onPageLoaded);
+      }
     });
   }
 

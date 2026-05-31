@@ -51,11 +51,11 @@
               <span class="sidebar-value">{{ workshop.location }}</span>
             </div>
             @if (workshop.ctaLink) {
-              <a [href]="workshop.ctaLink" target="_blank" class="btn btn-primary-pill w-100 mt-3">
+              <a [href]="workshop.ctaLink" target="_blank" class="btn btn-accent btn-pill w-100 mt-3">
                 {{ workshop.ctaText || 'Reserve Your Spot' }}
               </a>
             } @else {
-              <a routerLink="/contact" [queryParams]="{ workshop: workshop.id }" class="btn btn-primary-pill w-100 mt-3">
+              <a routerLink="/contact" [queryParams]="{ workshop: workshop.id }" class="btn btn-accent btn-pill w-100 mt-3">
                 {{ workshop.ctaText || 'Reserve Your Spot' }}
               </a>
             }
