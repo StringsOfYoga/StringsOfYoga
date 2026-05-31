@@ -3,7 +3,6 @@ import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
 import { Header } from "./shared/components/header/header";
 import { Footer } from "./shared/components/footer/footer";
 import { filter } from 'rxjs';
-import * as AOS from 'aos';
 
 @Component({
   selector: 'app-root',
@@ -23,12 +22,9 @@ export class App implements OnInit {
       const isAdmin = event.urlAfterRedirects.startsWith('/admin');
       this.showFooter.set(!isAdmin);
       this.showHeader.set(!isAdmin);
-      setTimeout(() => AOS.refreshHard(), 100);
     });
   }
 
   ngOnInit(): void {
-    AOS.init({ duration: 600, once: true });
-    AOS.refreshHard();
   }
 }

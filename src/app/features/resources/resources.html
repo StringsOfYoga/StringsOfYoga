@@ -64,7 +64,7 @@
     } @else {
       <div class="row g-4">
         @for (item of mediaItems; track item.id) {
-          <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up">
+          <div class="col-12 col-md-6 col-lg-4">
             <app-media-card [media]="item" (openPdf)="onOpenPdf($event)" />
           </div>
         }
