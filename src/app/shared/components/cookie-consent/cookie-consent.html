@@ -1,0 +1,15 @@
+@if (visible()) {
+  <div class="cookie-banner" role="dialog" aria-label="Cookie consent">
+    <div class="cookie-banner__content">
+      <p>
+        This website uses cookies and similar technologies to improve your experience.
+        By continuing, you consent to our use of cookies.
+        <a routerLink="/privacy" class="cookie-banner__link">Learn more</a>.
+      </p>
+    </div>
+    <div class="cookie-banner__actions">
+      <button type="button" class="btn btn-accent btn-pill" (click)="accept()">Accept All</button>
+      <button type="button" class="btn btn-outline-accent btn-pill" (click)="reject()">Reject</button>
+    </div>
+  </div>
+}

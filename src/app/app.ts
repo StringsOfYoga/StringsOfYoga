@@ -2,11 +2,12 @@ import { Component, OnInit, signal } from '@angular/core';
 import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
 import { Header } from "./shared/components/header/header";
 import { Footer } from "./shared/components/footer/footer";
+import { CookieConsent } from './shared/components/cookie-consent/cookie-consent';
 import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Header, Footer],
+  imports: [RouterOutlet, Header, Footer, CookieConsent],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

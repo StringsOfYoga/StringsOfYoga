@@ -70,5 +70,10 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/blog/blog-post/blog-post').then(m => m.BlogPostPage)
   },
+  {
+    path: 'privacy',
+    loadComponent: () => import('./features/privacy/privacy').then(m => m.Privacy),
+    title: 'Privacy Policy'
+  },
   { path: '**', redirectTo: '' }
 ];
