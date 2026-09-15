@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, map, tap } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, map, of, switchMap, tap } from 'rxjs';
 import { Workshop } from '../models/workshop.model';
 import { environment } from '../../../environments/environment';
 import { extractData, toCamelCase } from './api-response.helper';
@@ -10,6 +10,7 @@ import { extractData, toCamelCase } from './api-response.helper';
 })
 export class WorkshopService {
   private readonly baseUrl = environment.apiUrl;
+  private readonly mockBase = '/assets/data';
 
   private workshopsSubject = new BehaviorSubject<Workshop[]>([]);
   workshops$ = this.workshopsSubject.asObservable();
@@ -21,11 +22,19 @@ export class WorkshopService {
   private loadWorkshops(): void {
     this.http.get(`${this.baseUrl}/workshops`).pipe(
       extractData<Workshop[]>(),
-      map(toCamelCase<Workshop[]>)
+      map(toCamelCase<Workshop[]>),
+      catchError(() => this.loadMockWorkshops()),
+      switchMap(list => (list && list.length ? of(list) : this.loadMockWorkshops()))
     ).subscribe({
       next: workshops => this.workshopsSubject.next(workshops),
-      error: () => this.workshopsSubject.next([])
+      error: () => this.loadMockWorkshops().subscribe(w => this.workshopsSubject.next(w))
     });
+  }
+
+  private loadMockWorkshops(): Observable<Workshop[]> {
+    return this.http.get<Workshop[]>(`${this.mockBase}/workshops.json`).pipe(
+      catchError(() => of([]))
+    );
   }
 
   getWorkshops(): Workshop[] {
@@ -39,21 +48,33 @@ export class WorkshopService {
   getAllWorkshops(): Observable<Workshop[]> {
     return this.http.get(`${this.baseUrl}/workshops`).pipe(
       extractData<Workshop[]>(),
-      map(toCamelCase<Workshop[]>)
+      map(toCamelCase<Workshop[]>),
+      catchError(() => this.loadMockWorkshops()),
+      switchMap(list => (list && list.length ? of(list) : this.loadMockWorkshops()))
     );
   }
 
   getFeaturedWorkshops(): Observable<Workshop[]> {
     return this.http.get(`${this.baseUrl}/workshops/featured`).pipe(
       extractData<Workshop[]>(),
-      map(toCamelCase<Workshop[]>)
+      map(toCamelCase<Workshop[]>),
+      catchError(() => this.loadMockWorkshops()),
+      switchMap(list => (list && list.length ? of(list) : this.loadMockWorkshops()))
     );
   }
 
   getWorkshopById(id: string): Observable<Workshop> {
     return this.http.get(`${this.baseUrl}/workshops/${id}`).pipe(
       extractData<Workshop>(),
-      map(toCamelCase<Workshop>)
+      map(toCamelCase<Workshop>),
+      catchError(() =>
+        this.loadMockWorkshops().pipe(
+          map(list => {
+            const found = list.find(w => w.id === id);
+            return found as Workshop;
+          })
+        )
+      )
     );
   }
 

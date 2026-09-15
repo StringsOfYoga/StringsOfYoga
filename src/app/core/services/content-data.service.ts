@@ -59,15 +59,15 @@ export class ContentDataService {
     return {
       brand: {
         name: 'Strings of Yoga',
-        slogan: 'Find your flow, 1 string at a time.',
-        mission: 'To create calm and comforting spaces where we feel to heal.',
+        slogan: 'Move • Breathe • Restore • Thrive',
+        mission: 'To make yoga accessible to everyone through practical tools that support physical health, mental wellbeing, resilience, relaxation, and personal growth.',
         vision:
-          'We are committed to guide people in reconnecting with themselves and calming one string at a time.',
-        email: 'hello@stringsofyoga.com',
+          'To create a welcoming and supportive space where people can reconnect with themselves and discover practices that nurture health, balance, and inner wellbeing.',
+        email: 'info.stringsofyoga@gmail.com',
         phone: ''
       },
       about: {
-        headline: 'Guiding you home, one breath at a time',
+        headline: 'Meet Renu',
         story: '',
         philosophy: '',
         image: '/assets/images/footer-bg.png'

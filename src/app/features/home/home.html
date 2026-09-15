@@ -2,11 +2,11 @@
   <div class="container">
     <div class="hero-grid">
       <div class="hero-content">
-        <h1 class="hero-title">Find Your Serene Grace</h1>
-        <p class="hero-subtitle">A digital sanctuary dedicated to the art of deep rest and conscious self-inquiry. Journey through curated practices designed to restore your nervous system and awaken inner awareness.</p>
+        <h1 class="hero-title">Welcome to Strings of Yoga</h1>
+        <p class="hero-subtitle">At Strings of Yoga, we believe yoga is more than physical movement. It is a journey of awareness, wellbeing and coming home to yourself. Our mission is to make yoga accessible to everyone through practical tools that support physical health, mental wellbeing, resilience, relaxation, and personal growth.</p>
         <div class="hero-actions">
           <a routerLink="/resources" class="btn btn-primary-pill">Begin Practice</a>
-          <a routerLink="/about" class="btn btn-outline-pill">Our Story</a>
+          <a routerLink="/about" class="btn btn-outline-pill">Meet Renu</a>
         </div>
       </div>
       <div class="hero-image">
@@ -77,10 +77,10 @@
     <div class="philosophy-inner">
       <span class="section-label">Our Philosophy</span>
       <blockquote class="philosophy-quote">
-        "Yoga is not about touching your toes, it is what you learn on the way down."
+        "Yoga is not just what happens on the mat. It is something we live."
       </blockquote>
       <p class="philosophy-text">
-        We believe in the bridge between ancient traditional wisdom and contemporary neurology of understanding. Each breath is an invitation to inhabit the space between effort and ease, bringing ritual with refined modern awareness.
+        Whether you are looking to build strength, reduce stress, improve flexibility, support your mental health, prepare for pregnancy, or simply reconnect with yourself, there is a place for you here. Move · Breathe · Restore · Thrive.
       </p>
     </div>
   </div>
@@ -251,14 +251,14 @@
         <img src="download5.jpg" alt="Featured practice" />
       </div>
       <div class="featured-content">
-        <span class="section-label">New Release</span>
-        <h2 class="featured-title">Birds Gonna Be Happy</h2>
+        <span class="section-label">Training</span>
+        <h2 class="featured-title">Yoga Nidra Teacher Training</h2>
         <p class="featured-author">By Strings of Yoga</p>
         <p class="featured-desc">
-          An introspective guide to reclaiming joy through the practice of mindful stillness and the observation of the natural world. A must-read for the modern seeker.
+          A comprehensive training designed for yoga teachers, therapists, wellbeing practitioners, and anyone wishing to deepen their understanding of Yoga Nidra. Explore its philosophy, the science of relaxation, guided practice techniques, nervous system regulation, and practical teaching skills.
         </p>
-        <div class="featured-price">$45.00</div>
-        <a routerLink="/contact" class="btn btn-primary-pill">Short Now</a>
+        <div class="featured-price">40 Hours · Accredited by YogaPros</div>
+        <a routerLink="/contact" class="btn btn-primary-pill">Enquire Now</a>
       </div>
     </div>
   </div>
@@ -345,37 +345,37 @@
     <div class="blog-grid">
       <article class="blog-card-modern">
         <figure>
-          <a href="#" class="image-hvr-effect">
+          <a [routerLink]="['/blog', 'yoga-is-not-about-touching-your-toes']" class="image-hvr-effect">
             <img src="/assets/images/post-img1.jpg" alt="post" />
           </a>
         </figure>
         <div class="blog-card-body">
-          <div class="meta-date">Mar 30, 2021</div>
-          <h3><a href="#">Reading books always makes the moments happy</a></h3>
+          <div class="meta-date">Sep 1, 2026</div>
+          <h3><a [routerLink]="['/blog', 'yoga-is-not-about-touching-your-toes']">Yoga Is Not About Touching Your Toes</a></h3>
           <div class="categories">inspiration</div>
         </div>
       </article>
       <article class="blog-card-modern">
         <figure>
-          <a href="#" class="image-hvr-effect">
+          <a [routerLink]="['/blog', 'yog-nidra-for-better-sleep']" class="image-hvr-effect">
             <img src="/assets/images/post-img2.jpg" alt="post" />
           </a>
         </figure>
         <div class="blog-card-body">
-          <div class="meta-date">Mar 29, 2021</div>
-          <h3><a href="#">The art of stillness in a moving world</a></h3>
-          <div class="categories">mindfulness</div>
+          <div class="meta-date">Apr 12, 2026</div>
+          <h3><a [routerLink]="['/blog', 'yog-nidra-for-better-sleep']">Yog Nidra for Better Sleep</a></h3>
+          <div class="categories">yog nidra</div>
         </div>
       </article>
       <article class="blog-card-modern">
         <figure>
-          <a href="#" class="image-hvr-effect">
+          <a [routerLink]="['/blog', 'breathwork-for-anxiety']" class="image-hvr-effect">
             <img src="/assets/images/post-img3.jpg" alt="post" />
           </a>
         </figure>
         <div class="blog-card-body">
-          <div class="meta-date">Feb 27, 2021</div>
-          <h3><a href="#">Breath as the bridge to presence</a></h3>
+          <div class="meta-date">Mar 28, 2026</div>
+          <h3><a [routerLink]="['/blog', 'breathwork-for-anxiety']">Breathwork for Anxiety: A Gentle Start</a></h3>
           <div class="categories">breathwork</div>
         </div>
       </article>

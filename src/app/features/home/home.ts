@@ -34,7 +34,7 @@ export class Home implements OnInit, AfterViewInit {
     this.seo.setPage({
       title: 'Home',
       description:
-        'Strings of Yoga — calm Yog Nidra, breathwork, and restorative wellness. Find your flow, one string at a time.'
+        'Welcome to Strings of Yoga—move, breathe, restore, thrive. Yoga Nidra teacher training, meditation & mantra, and wellbeing workshops.'
     });
 
     this.workshopService.workshops$.subscribe(workshops => {

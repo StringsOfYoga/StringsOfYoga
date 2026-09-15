@@ -1,52 +1,32 @@
 [
   {
-    "id": "course-1",
-    "title": "Yog Nidra",
-    "description": "A guided deep relaxation practice that gently leads you to a state of conscious rest. Perfect for releasing tension and improving sleep.",
-    "duration": "45 min",
+    "id": "yoga-nidra-teacher-training",
+    "title": "Yoga Nidra Teacher Training",
+    "description": "A comprehensive training designed for yoga teachers, therapists, wellbeing practitioners, and anyone wishing to deepen their understanding of Yoga Nidra. Explore the philosophy of Yoga Nidra, the science of relaxation, guided practice techniques, creating and leading sessions, nervous system regulation, and practical teaching skills.",
+    "duration": "40 Hours",
     "level": "All levels",
-    "format": "1-on-1 · In-person",
-    "image": "/assets/images/courses/yog-nidra.jpg",
-    "slug": "yog-nidra"
+    "format": "Accredited by YogaPros (formerly Yoga Alliance Professional UK)",
+    "image": "download1.jpg",
+    "slug": "yoga-nidra-teacher-training"
   },
   {
-    "id": "course-2",
-    "title": "Hatha Yoga",
-    "description": "Slow-paced, grounding postures held with awareness. Build strength, flexibility, and inner peace through mindful movement.",
-    "duration": "60 min",
-    "level": "Beginner-friendly",
-    "format": "Group · In-person",
-    "image": "/assets/images/courses/hatha.jpg",
-    "slug": "hatha-yoga"
-  },
-  {
-    "id": "course-3",
-    "title": "Pregnancy Yoga",
-    "description": "Nurturing prenatal movement designed to support your changing body, ease discomfort, and prepare for birth with confidence.",
-    "duration": "50 min",
-    "level": "Prenatal",
-    "format": "1-on-1 · In-person",
-    "image": "/assets/images/courses/prenatal.jpg",
-    "slug": "pregnancy-yoga"
-  },
-  {
-    "id": "course-4",
-    "title": "Restorative Yoga",
-    "description": "Deeply relaxing, prop-supported poses held for longer durations to calm the nervous system and restore energy.",
-    "duration": "60 min",
+    "id": "meditation-mantra-training",
+    "title": "Meditation & Mantra Training",
+    "description": "Discover the power of meditation and mantra as tools for awareness, concentration, relaxation, and personal transformation. Suitable for teachers and practitioners wishing to deepen their knowledge and practice.",
+    "duration": "28 Hours",
     "level": "All levels",
-    "format": "1-on-1 · In-person",
-    "image": "/assets/images/courses/restorative.jpg",
-    "slug": "restorative-yoga"
+    "format": "For deeper awareness, relaxation and personal growth",
+    "image": "download2.jpg",
+    "slug": "meditation-mantra-training"
   },
   {
-    "id": "course-5",
-    "title": "Breathwork",
-    "description": "Conscious breathing techniques to manage anxiety, improve focus, and reconnect with your body's natural rhythm.",
-    "duration": "30 min",
+    "id": "soul-sundays",
+    "title": "Soul Sundays (Online)",
+    "description": "A weekly online yoga and wellbeing class designed to help you begin the week feeling calmer, stronger, and more connected. Includes gentle yoga movement, mobility and stretching, breath awareness, mindfulness, and relaxation. Suitable for all levels.",
+    "duration": "Weekly",
     "level": "All levels",
-    "format": "1-on-1 · Online",
-    "image": "/assets/images/courses/breathwork.jpg",
-    "slug": "breathwork"
+    "format": "Online · Weekly class",
+    "image": "download3.jpg",
+    "slug": "soul-sundays"
   }
 ]

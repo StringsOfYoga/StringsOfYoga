@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://soy-bmbbfnhqf8bggah5.ukwest-01.azurewebsites.net/api',
+  apiUrl: 'http://soy.runasp.net/api',
   useMockData: false
 };
