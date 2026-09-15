@@ -1,13 +1,13 @@
 <app-page-hero
   title="Contact"
   eyebrow="We're here"
-  subtitle="Share what you need—booking, questions, or simply hello. We'll respond with warmth and clarity."
+  subtitle="Share what you need—booking, questions, or simply hello. We'll respond with warmth and clarity. Email: info.stringsofyoga@gmail.com"
 />
 
 <section class="page-section">
   <div class="container">
     <div class="row g-5">
-      <div class="col-lg-5" data-aos="fade-right">
+      <div class="col-lg-5">
         @if (site) {
           <h2 class="section-title divider">Connect</h2>
           <p>
@@ -29,7 +29,7 @@
         }
       </div>
 
-      <div class="col-lg-7" data-aos="fade-left">
+      <div class="col-lg-7">
         @if (submitted) {
           <div class="soft-card p-4" role="status">
             <h3>Thank you</h3>
@@ -60,7 +60,12 @@
                 name="message"
               ></textarea>
             </div>
-            <button type="submit" class="btn btn-common btn-pill">Send message</button>
+            @if (error) {
+              <div class="alert alert-danger">{{ error }}</div>
+            }
+            <button type="submit" class="btn btn-common btn-pill" [disabled]="loading">
+              {{ loading ? 'Sending...' : 'Send message' }}
+            </button>
           </form>
         }
       </div>

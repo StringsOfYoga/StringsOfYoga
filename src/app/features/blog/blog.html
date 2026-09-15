@@ -1,14 +1,14 @@
 <app-page-hero
   title="Blog"
   eyebrow="Read & reflect"
-  subtitle="Slow reads for mental wellness, rest, and reconnection—written in a warm, grounding voice."
+  subtitle="Reflections on awareness, breath, and the everyday practice of coming home to yourself."
 />
 
 <section id="latest-blog" class="page-section">
   <div class="container">
     <div class="row g-4">
       @for (post of posts; track post.id) {
-        <div class="col-md-4" data-aos="fade-up">
+        <div class="col-md-4">
           <article class="blog-card">
             <a [routerLink]="['/blog', post.slug]">
               <img [src]="post.image" [alt]="post.title" loading="lazy" />

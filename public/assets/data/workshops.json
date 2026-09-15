@@ -1,38 +1,28 @@
 [
   {
-    "id": "anxiety-relief",
-    "title": "Anxiety Relief Workshop",
-    "description": "Gentle breath, grounding, and Yog Nidra tools to soften anxious patterns and return to the body.",
-    "date": "2026-06-14",
+    "id": "womens-wellbeing-workshop",
+    "title": "Women's Well-Being Workshop",
+    "description": "A monthly face-to-face workshop supporting women's physical, mental, and emotional wellbeing. Topics may include hormonal balance, menopause support, bone health and strength, breathwork, Yoga Nidra, mindfulness, and self-care practices. A welcoming space to move, learn, connect, and restore.",
+    "date": "2026-10-10",
     "time": "10:00 AM",
-    "location": "Online · Live",
-    "duration": "2 hours",
-    "spots": 12,
-    "image": "download2.jpg",
-    "category": "Anxiety"
+    "location": "Face-to-face · Studio",
+    "coverImage": "download4.jpg",
+    "ctaText": "Reserve Spot",
+    "ctaLink": "",
+    "featured": true,
+    "createdAt": ""
   },
   {
-    "id": "depression-support",
-    "title": "Depression Support Circle",
-    "description": "A held, non-judgmental space with restorative movement, sharing, and nervous-system care practices.",
-    "date": "2026-07-05",
-    "time": "4:00 PM",
-    "location": "Studio · In person",
-    "duration": "2.5 hours",
-    "spots": 8,
-    "image": "download3.jpg",
-    "category": "Depression support"
-  },
-  {
-    "id": "mental-wellness",
-    "title": "Mental Wellness Weekend",
-    "description": "A slow weekend immersion in breathwork, meditation, and self-compassion—for sustainable inner balance.",
-    "date": "2026-08-22",
-    "time": "9:30 AM",
-    "location": "Retreat space",
-    "duration": "Weekend",
-    "spots": 15,
-    "image": "download4.jpg",
-    "category": "Mental wellness"
+    "id": "pregnancy-yoga-workshop",
+    "title": "Pregnancy Yoga Workshop",
+    "description": "A gentle and supportive practice designed to help women navigate pregnancy through movement, breath awareness, relaxation, and preparation for birth. Includes safe movement, breath awareness, relaxation techniques, pelvic floor awareness, preparation for birth, and emotional wellbeing. Suitable from 12 weeks of pregnancy onwards—please consult your healthcare professional before attending if you have any concerns.",
+    "date": "2026-10-17",
+    "time": "11:00 AM",
+    "location": "Face-to-face · Studio",
+    "coverImage": "download5.jpg",
+    "ctaText": "Reserve Spot",
+    "ctaLink": "",
+    "featured": true,
+    "createdAt": ""
   }
 ]

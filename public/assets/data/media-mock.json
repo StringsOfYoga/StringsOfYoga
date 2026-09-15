@@ -6,9 +6,9 @@
     "url": "/assets/audio/yoga-nidra.mp3",
     "thumbnailUrl": "download4.jpg",
     "collectionId": "sleep-better",
-    "description": "A 25-minute practice for deep rest.",
+    "description": "A 25-minute guided Yoga Nidra practice for deep rest and nervous system regulation.",
     "isFeatured": true,
-    "category": "Yog Nidra"
+    "category": "Yoga Nidra"
   },
   {
     "id": "m2",
@@ -18,7 +18,7 @@
     "thumbnailUrl": "download2.jpg",
     "collectionId": "sleep-better",
     "isFeatured": true,
-    "category": "Sleep"
+    "category": "Yoga Nidra"
   },
   {
     "id": "m3",
@@ -28,7 +28,7 @@
     "thumbnailUrl": "download3.jpg",
     "collectionId": "sleep-better",
     "isFeatured": true,
-    "category": "Yog Nidra"
+    "category": "Yoga Nidra"
   },
   {
     "id": "m4",
@@ -36,20 +36,20 @@
     "type": "audio",
     "url": "/assets/audio/yoga-nidra.mp3",
     "thumbnailUrl": "download1.jpg",
-    "collectionId": "morning-calm",
+    "collectionId": "beginner-breathwork",
     "isFeatured": false,
-    "category": "Breathwork"
+    "category": "Breathing Practices"
   },
   {
     "id": "m5",
-    "title": "Grounding PDF Guide",
+    "title": "Grounding & Self-Care Guide",
     "type": "pdf",
     "url": "/assets/STRINGS OF YOGA planning-.pdf",
     "thumbnailUrl": "download5.jpg",
-    "collectionId": "anxiety-relief-series",
-    "description": "Printable grounding exercises for anxious moments.",
+    "collectionId": "self-care-guides",
+    "description": "Practical self-care exercises and grounding practices for everyday wellbeing.",
     "isFeatured": false,
-    "category": "Anxiety"
+    "category": "Self-care"
   },
   {
     "id": "m6",
@@ -57,8 +57,30 @@
     "type": "image",
     "url": "download1.jpg",
     "thumbnailUrl": "download1.jpg",
-    "collectionId": "beginner-breathwork",
+    "collectionId": "morning-calm",
     "isFeatured": false,
-    "category": "Inspiration"
+    "category": "Meditation"
+  },
+  {
+    "id": "m7",
+    "title": "Breathwork for Stress Relief",
+    "type": "audio",
+    "url": "/assets/audio/yoga-nidra.mp3",
+    "thumbnailUrl": "download3.jpg",
+    "collectionId": "beginner-breathwork",
+    "description": "A gentle breathing practice to ease stress and return to centre.",
+    "isFeatured": false,
+    "category": "Breathing Practices"
+  },
+  {
+    "id": "m8",
+    "title": "Body Scan for Self-Care",
+    "type": "audio",
+    "url": "/assets/audio/yoga-nidra.mp3",
+    "thumbnailUrl": "download4.jpg",
+    "collectionId": "self-care-guides",
+    "description": "A soothing body scan to cultivate awareness and release tension.",
+    "isFeatured": false,
+    "category": "Self-care"
   }
 ]

@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://your-azure-function-url.azurewebsites.net/api',
+  apiUrl: 'http://soy.runasp.net/api',
   useMockData: false
 };

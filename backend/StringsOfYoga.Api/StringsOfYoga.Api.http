@@ -1,0 +1,45 @@
+@StringsOfYoga.Api_HostAddress = http://localhost:5000/api
+
+### Health / List endpoints (Swagger UI is at http://localhost:5000/)
+
+### Get all workshops
+GET {{StringsOfYoga.Api_HostAddress}}/workshops
+Accept: application/json
+
+### Get featured workshops
+GET {{StringsOfYoga.Api_HostAddress}}/workshops/featured
+Accept: application/json
+
+### Get all resources
+GET {{StringsOfYoga.Api_HostAddress}}/resources
+Accept: application/json
+
+### Get featured media
+GET {{StringsOfYoga.Api_HostAddress}}/media/featured
+Accept: application/json
+
+### Search media
+GET {{StringsOfYoga.Api_HostAddress}}/media/search?q=nidra
+Accept: application/json
+
+### Get all collections
+GET {{StringsOfYoga.Api_HostAddress}}/collections
+Accept: application/json
+
+### Admin login (returns a JWT)
+POST {{StringsOfYoga.Api_HostAddress}}/auth/login
+Content-Type: application/json
+
+{
+  "password": "renu@soy2024"
+}
+
+### Submit a contact message
+POST {{StringsOfYoga.Api_HostAddress}}/contact
+Content-Type: application/json
+
+{
+  "name": "Jane",
+  "email": "jane@example.com",
+  "message": "I'd like to book a workshop."
+}

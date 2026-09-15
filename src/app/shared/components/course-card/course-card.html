@@ -1,20 +1,13 @@
-<div class="product-item course-card h-100">
-  <figure class="product-style">
-    <div class="music-case">
-      <div class="front-case">
-        <img [src]="course.image" [alt]="course.title" loading="lazy" />
-      </div>
-      <div class="disc"><div class="hole"></div></div>
-      <div class="back-case"></div>
-    </div>
-    <a [routerLink]="['/contact']" [queryParams]="{ interest: course.title }" class="add-to-cart">
-      Book session
-    </a>
-  </figure>
-  <figcaption>
+<article class="course-card soft-card h-100">
+  <div class="course-card__media" [style.background-image]="'url(' + course.image + ')'">
+  </div>
+  <div class="course-card__body">
     <h3>{{ course.title }}</h3>
-    <span>{{ course.duration }} · {{ course.level }}</span>
+    <p class="course-card__meta">{{ course.duration }} · {{ course.level }}</p>
     <p class="course-card__desc">{{ course.description }}</p>
     <p class="course-card__format"><small>{{ course.format }}</small></p>
-  </figcaption>
-</div>
+    <a [routerLink]="['/contact']" [queryParams]="{ interest: course.title }" class="btn btn-accent btn-pill">
+      Book session
+    </a>
+  </div>
+</article>

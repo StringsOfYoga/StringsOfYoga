@@ -1,7 +1,7 @@
 <app-page-hero
   title="Courses & Sessions"
   eyebrow="Practice with us"
-  subtitle="Each offering is paced slowly, held with care, and designed to meet you where you are."
+  subtitle="Training, meditation, and weekly online classes—designed to meet you where you are."
 />
 
 <section class="page-section">
@@ -13,7 +13,7 @@
     } @else {
       <div class="row g-4">
         @for (course of courses; track course.id) {
-          <div class="col-md-6 col-lg-4" data-aos="fade-up">
+          <div class="col-md-6 col-lg-4">
             <app-course-card [course]="course" />
           </div>
         }

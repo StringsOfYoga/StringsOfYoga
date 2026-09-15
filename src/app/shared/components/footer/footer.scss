@@ -66,6 +66,15 @@ footer#footer {
       &:hover {
         color: var(--accent-color);
       }
+
+      &.member-login-link {
+        color: var(--gold-color);
+        font-weight: 500;
+
+        &:hover {
+          color: var(--accent-color);
+        }
+      }
     }
   }
 }

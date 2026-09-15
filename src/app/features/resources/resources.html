@@ -1,7 +1,7 @@
 <app-page-hero
   title="Resource Library"
   eyebrow="Listen · Watch · Read"
-  subtitle="Curated practices for sleep, breath, anxiety relief, and morning calm—browse at your own pace."
+  subtitle="A growing collection of guided Yoga Nidra recordings, breathing practices, wellbeing articles, meditation resources, and self-care guides."
 />
 
 <section class="page-section">
@@ -64,7 +64,7 @@
     } @else {
       <div class="row g-4">
         @for (item of mediaItems; track item.id) {
-          <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up">
+          <div class="col-12 col-md-6 col-lg-4">
             <app-media-card [media]="item" (openPdf)="onOpenPdf($event)" />
           </div>
         }

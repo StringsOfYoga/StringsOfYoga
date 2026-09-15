@@ -1,0 +1,44 @@
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1050;
+  background: var(--card-bg);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  &__content {
+    flex: 1 1 300px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--body-text-color);
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__link {
+    color: var(--accent-color);
+    text-decoration: underline;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  .btn {
+    padding: 0.4rem 1.2rem;
+    font-size: 0.85rem;
+    height: auto;
+  }
+}

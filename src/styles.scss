@@ -7,6 +7,40 @@ Description: Booksaw is specially designed product packaged for Book Store by Te
 Version: 1.1
 */
 
+/* GLOBAL OVERFLOW FIX - Prevent horizontal scrolling */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+  max-width: 100vw;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-width: 100vw;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+/* SVG ICON FIX - Ensure all SVGs inherit color properly */
+svg {
+  display: inline-block;
+  vertical-align: middle;
+}
+
 /*--------------------------------------------------------------
 /* GENERAL STYLES
 --------------------------------------------------------------*/
@@ -41,6 +75,7 @@ Version: 1.1
 
     --secondary-color: #D9DFD2;       /* sage mist */
     --gold-accent: #B89B72;           /* soft luxury gold */
+    --gold-color: var(--gold-accent);
 
 
     /* =========================
@@ -2423,7 +2458,7 @@ span.prev-price {
 
 /*----- Latest Blog Section
 --------------------------------------------------------------*/
-#latest-blog {}
+// #latest-blog {}
 
 #latest-blog article.column {
     margin-bottom: 60px;
@@ -2895,7 +2930,7 @@ footer#footer {
 }
 
 .page-section {
-    padding: 4rem 0;
+    padding: 2rem 0;
 }
 
 .page-section--alt {
@@ -3064,4 +3099,36 @@ h4, h5, h6 {
 p {
     color: var(--body-text-color);
     line-height: 1.75;
+}
+
+/* Custom scrollbar */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-color) transparent;
+}
+
+html::-webkit-scrollbar {
+  width: 6px;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
 }

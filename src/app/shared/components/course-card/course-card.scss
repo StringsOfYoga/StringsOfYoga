@@ -1,16 +1,44 @@
-.course-card__desc {
-  font-size: 0.9rem;
-  line-height: 1.6;
-  margin: 0.5rem 0 0;
-  color: var(--body-text-color);
-}
+.course-card {
+  overflow: hidden;
 
-.course-card__format {
-  margin: 0.25rem 0 0;
-  color: var(--accent-color);
-}
+  &__media {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+  }
 
-.course-card .add-to-cart {
-  text-decoration: none;
-  display: block;
+  &__body {
+    padding: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.35rem;
+    margin: 0 0 0.5rem;
+  }
+
+  &__meta {
+    font-size: 0.85rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+  }
+
+  &__desc {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+    color: var(--body-text-color);
+  }
+
+  &__format {
+    margin: 0 0 1rem;
+    color: var(--accent-color);
+    opacity: 0.8;
+  }
+
+  .btn {
+    width: 100%;
+    height: auto;
+    text-transform: none;
+    font-weight: 600;
+  }
 }
